@@ -598,7 +598,7 @@ mod tests {
         };};
     }
 
-    #[test]
+    #[test_derive::test]
     fn boxed_is_send() {
         #[cfg(feature = "postgres")]
         assert_boxed_query_send!(crate::pg::Pg);

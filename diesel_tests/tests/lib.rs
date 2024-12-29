@@ -1,5 +1,9 @@
 #![recursion_limit = "1024"]
 
+#[cfg(test)]
+#[cfg(all(target_family = "wasm", not(target_os = "wasi")))]
+wasm_bindgen_test::wasm_bindgen_test_configure!(run_in_dedicated_worker);
+
 #[macro_use]
 extern crate assert_matches;
 
@@ -56,3 +60,6 @@ mod transactions;
 mod types;
 mod types_roundtrip;
 mod update;
+
+#[cfg(all(target_family = "wasm", not(target_os = "wasi"), feature = "sqlite"))]
+pub use diesel::init_sqlite;

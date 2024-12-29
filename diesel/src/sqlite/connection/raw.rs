@@ -1,5 +1,9 @@
 #![allow(unsafe_code)] // ffi calls
+#[cfg(not(all(target_family = "wasm", not(target_os = "wasi"))))]
 extern crate libsqlite3_sys as ffi;
+
+#[cfg(all(target_family = "wasm", not(target_os = "wasi")))]
+use sqlite_wasm_rs::c as ffi;
 
 use std::ffi::{CString, NulError};
 use std::io::{stderr, Write};
@@ -45,8 +49,20 @@ impl RawConnection {
             CString::new(database_url)?
         };
         let flags = ffi::SQLITE_OPEN_READWRITE | ffi::SQLITE_OPEN_CREATE | ffi::SQLITE_OPEN_URI;
+        
+        #[cfg(all(target_family = "wasm", not(target_os = "wasi")))]
+        let vfs = CString::new("opfs")?;
+
         let connection_status = unsafe {
-            ffi::sqlite3_open_v2(database_url.as_ptr(), &mut conn_pointer, flags, ptr::null())
+            ffi::sqlite3_open_v2(
+                database_url.as_ptr(),
+                &mut conn_pointer,
+                flags,
+                #[cfg(all(target_family = "wasm", not(target_os = "wasi")))]
+                vfs.as_ptr(),
+                #[cfg(not(all(target_family = "wasm", not(target_os = "wasi"))))]
+                ptr::null()
+            )
         };
 
         match connection_status {

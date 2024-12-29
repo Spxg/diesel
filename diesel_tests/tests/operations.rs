@@ -18,7 +18,7 @@ struct CustomBigDecimal {
     pub big_decimal: BigDecimal,
 }
 
-#[test]
+#[test_derive::test]
 fn big_decimal_add() {
     let connection = &mut connection();
 

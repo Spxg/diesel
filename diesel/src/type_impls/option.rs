@@ -123,7 +123,7 @@ where
     }
 }
 
-#[test]
+#[test_derive::test]
 #[cfg(feature = "postgres")]
 fn option_to_sql() {
     use crate::pg::Pg;
