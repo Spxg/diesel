@@ -263,6 +263,10 @@
 #![deny(unsafe_code)]
 #![cfg_attr(test, allow(clippy::map_unwrap_or, clippy::unwrap_used))]
 
+#[cfg(test)]
+#[cfg(all(target_family = "wasm", not(target_os = "wasi")))]
+wasm_bindgen_test::wasm_bindgen_test_configure!(run_in_dedicated_worker);
+
 extern crate diesel_derives;
 
 #[macro_use]
@@ -768,6 +772,9 @@ pub mod prelude {
     #[cfg(feature = "sqlite")]
     #[doc(inline)]
     pub use crate::sqlite::SqliteConnection;
+    #[cfg(feature = "sqlite")]
+    #[cfg(all(target_family = "wasm", not(target_os = "wasi")))]
+    pub use sqlite_wasm_rs::init_sqlite;
 }
 
 #[doc(inline)]
