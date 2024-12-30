@@ -119,11 +119,11 @@ where
 ///     name: &'a str,
 /// }
 ///
-/// # fn main() {
-/// #     run_test();
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+/// #     run_test().await.unwrap();
 /// # }
 /// #
-/// # fn run_test() -> QueryResult<()> {
+/// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
 /// #     use self::animals::dsl::*;
 /// #     let connection = &mut establish_connection();
 /// let form = AnimalForm { id: 2, name: "Super scary" };

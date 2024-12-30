@@ -26,7 +26,7 @@ use crate::Table;
 /// # include!("../doctest_setup.rs");
 /// #
 /// # #[cfg(feature = "postgres")]
-/// # fn main() {
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
 /// #     use schema::users::dsl::*;
 /// #     let connection = &mut establish_connection();
 /// let updated_row = diesel::update(users.filter(id.eq(1)))
@@ -39,7 +39,7 @@ use crate::Table;
 /// assert_eq!(Ok((1, "James".to_string())), updated_row);
 /// # }
 /// # #[cfg(not(feature = "postgres"))]
-/// # fn main() {}
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {}
 /// ```
 ///
 /// To update multiple columns, give [`set`] a tuple argument:
@@ -58,7 +58,7 @@ use crate::Table;
 /// # }
 /// #
 /// # #[cfg(feature = "postgres")]
-/// # fn main() {
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
 /// # use self::users::dsl::*;
 /// # let connection = &mut establish_connection();
 /// # diesel::sql_query("DROP TABLE users").execute(connection).unwrap();
@@ -75,7 +75,7 @@ use crate::Table;
 /// assert_eq!(Ok((1, "James".to_string(), "Bond".to_string())), updated_row);
 /// # }
 /// # #[cfg(not(feature = "postgres"))]
-/// # fn main() {}
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {}
 /// ```
 pub fn update<T: IntoUpdateTarget>(source: T) -> UpdateStatement<T::Table, T::WhereClause> {
     UpdateStatement::new(source.into_update_target())
@@ -97,7 +97,7 @@ pub fn update<T: IntoUpdateTarget>(source: T) -> UpdateStatement<T::Table, T::Wh
 /// ```rust
 /// # include!("../doctest_setup.rs");
 /// #
-/// # fn main() {
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
 /// #     delete();
 /// # }
 /// #
@@ -117,7 +117,7 @@ pub fn update<T: IntoUpdateTarget>(source: T) -> UpdateStatement<T::Table, T::Wh
 /// ```rust
 /// # include!("../doctest_setup.rs");
 /// #
-/// # fn main() {
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
 /// #     delete();
 /// # }
 /// #
@@ -153,7 +153,7 @@ pub fn delete<T: IntoUpdateTarget>(source: T) -> DeleteStatement<T::Table, T::Wh
 /// ```rust
 /// # include!("../doctest_setup.rs");
 /// #
-/// # fn main() {
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
 /// #     use schema::users::dsl::*;
 /// #     let connection = &mut establish_connection();
 /// let rows_inserted = diesel::insert_into(users)
@@ -180,7 +180,7 @@ pub fn delete<T: IntoUpdateTarget>(source: T) -> DeleteStatement<T::Table, T::Wh
 /// ```rust
 /// # include!("../doctest_setup.rs");
 /// #
-/// # fn main() {
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
 /// #     use schema::users::dsl::*;
 /// #     let connection = &mut establish_connection();
 /// #     diesel::delete(users).execute(connection).unwrap();
@@ -216,7 +216,7 @@ pub fn delete<T: IntoUpdateTarget>(source: T) -> DeleteStatement<T::Table, T::Wh
 ///     name: &'a str,
 /// }
 ///
-/// # fn main() {
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
 /// #     use schema::users::dsl::*;
 /// #     let connection = &mut establish_connection();
 /// // Insert one record at a time
@@ -264,7 +264,7 @@ pub fn delete<T: IntoUpdateTarget>(source: T) -> DeleteStatement<T::Table, T::Wh
 /// }
 ///
 /// # #[cfg(not(feature = "sqlite"))]
-/// # fn main() {
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
 /// #     use schema::brands::dsl::*;
 /// #     let connection = &mut establish_connection();
 /// // Insert `Red`
@@ -284,7 +284,7 @@ pub fn delete<T: IntoUpdateTarget>(source: T) -> DeleteStatement<T::Table, T::Wh
 ///     .unwrap();
 /// # }
 /// # #[cfg(feature = "sqlite")]
-/// # fn main() {}
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {}
 /// ```
 ///
 /// ### Inserting default value for a nullable column
@@ -310,7 +310,7 @@ pub fn delete<T: IntoUpdateTarget>(source: T) -> DeleteStatement<T::Table, T::Wh
 /// }
 ///
 /// # #[cfg(not(feature = "sqlite"))]
-/// # fn main() {
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
 /// #     use schema::brands::dsl::*;
 /// #     let connection = &mut establish_connection();
 /// // Insert `Red`
@@ -338,7 +338,7 @@ pub fn delete<T: IntoUpdateTarget>(source: T) -> DeleteStatement<T::Table, T::Wh
 ///     .unwrap();
 /// # }
 /// # #[cfg(feature = "sqlite")]
-/// # fn main() {}
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {}
 /// ```
 ///
 /// ### Insert from select
@@ -354,11 +354,11 @@ pub fn delete<T: IntoUpdateTarget>(source: T) -> DeleteStatement<T::Table, T::Wh
 /// ```rust
 /// # include!("../doctest_setup.rs");
 /// #
-/// # fn main() {
-/// #     run_test().unwrap();
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+/// #     run_test().await.unwrap();
 /// # }
 /// #
-/// # fn run_test() -> QueryResult<()> {
+/// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
 /// #     use schema::{posts, users};
 /// #     let conn = &mut establish_connection();
 /// #     diesel::delete(posts::table).execute(conn)?;
@@ -387,7 +387,7 @@ pub fn delete<T: IntoUpdateTarget>(source: T) -> DeleteStatement<T::Table, T::Wh
 /// # include!("../doctest_setup.rs");
 /// #
 /// # #[cfg(feature = "postgres")]
-/// # fn main() {
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
 /// #     use schema::users::dsl::*;
 /// #     let connection = &mut establish_connection();
 /// let inserted_names = diesel::insert_into(users)
@@ -400,7 +400,7 @@ pub fn delete<T: IntoUpdateTarget>(source: T) -> DeleteStatement<T::Table, T::Wh
 /// assert_eq!(Ok(vec!["Diva Plavalaguna".to_string(), "Father Vito Cornelius".to_string()]), inserted_names);
 /// # }
 /// # #[cfg(not(feature = "postgres"))]
-/// # fn main() {}
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {}
 /// ```
 pub fn insert_into<T: Table>(target: T) -> IncompleteInsertStatement<T> {
     IncompleteInsertStatement::new(target, Insert)
@@ -421,12 +421,12 @@ pub fn insert_into<T: Table>(target: T) -> IncompleteInsertStatement<T> {
 /// ```rust
 /// # include!("../doctest_setup.rs");
 /// #
-/// # fn main() {
-/// #     run_test().unwrap();
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+/// #     run_test().await.unwrap();
 /// # }
 /// #
 /// # #[cfg(not(feature = "postgres"))]
-/// # fn run_test() -> QueryResult<()> {
+/// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
 /// #     use schema::users::dsl::*;
 /// #     use diesel::{delete, insert_or_ignore_into};
 /// #
@@ -449,7 +449,7 @@ pub fn insert_into<T: Table>(target: T) -> IncompleteInsertStatement<T> {
 /// # }
 /// #
 /// # #[cfg(feature = "postgres")]
-/// # fn run_test() -> QueryResult<()> {
+/// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
 /// #     Ok(())
 /// # }
 /// ```
@@ -493,7 +493,7 @@ where
 /// # include!("../doctest_setup.rs");
 /// #
 /// # #[cfg(not(feature = "postgres"))]
-/// # fn main() {
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
 /// #     use schema::users::dsl::*;
 /// #     use diesel::{insert_into, replace_into};
 /// #
@@ -515,7 +515,7 @@ where
 /// let names = users.select(name).order(id).load::<String>(conn);
 /// assert_eq!(Ok(vec!["Jim".into(), "Tess".into()]), names);
 /// # }
-/// # #[cfg(feature = "postgres")] fn main() {}
+/// # #[cfg(feature = "postgres")] #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {}
 pub fn replace_into<T: Table>(target: T) -> IncompleteReplaceStatement<T> {
     IncompleteInsertStatement::new(target, Replace)
 }
@@ -554,7 +554,7 @@ pub fn replace_into<T: Table>(target: T) -> IncompleteReplaceStatement<T> {
 /// #     name: String,
 /// # }
 /// #
-/// # fn main() {
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
 /// #     run_test_1().unwrap();
 /// #     run_test_2().unwrap();
 /// # }

@@ -16,7 +16,7 @@ use crate::Table;
 /// # include!("../../../doctest_setup.rs");
 /// # use schema::{posts, users};
 /// # use diesel::dsl::*;
-/// # fn main() {
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
 /// # let connection = &mut establish_connection();
 /// let n_sers_in_main_table = users::table
 ///     .only()
@@ -33,7 +33,7 @@ use crate::Table;
 /// # include!("../../../doctest_setup.rs");
 /// # use schema::{posts, users};
 /// # use diesel::dsl::*;
-/// # fn main() {
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
 /// # let connection = &mut establish_connection();
 /// # let _ =
 /// users::table

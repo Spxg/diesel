@@ -94,7 +94,7 @@ impl<T: QuerySource, U> DeleteStatement<T, U, NoReturningClause> {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     use schema::users::dsl::*;
     /// #     let connection = &mut establish_connection();
     /// let deleted_rows = diesel::delete(users)
@@ -127,7 +127,7 @@ impl<T: QuerySource, U> DeleteStatement<T, U, NoReturningClause> {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     use schema::users::dsl::*;
     /// #     let connection = &mut establish_connection();
     /// let deleted_rows = diesel::delete(users)
@@ -164,11 +164,11 @@ impl<T: QuerySource, U> DeleteStatement<T, U, NoReturningClause> {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use std::collections::HashMap;
     /// #     use schema::users::dsl::*;
     /// #     let connection = &mut establish_connection();
@@ -302,7 +302,7 @@ impl<T: QuerySource, U> DeleteStatement<T, U, NoReturningClause> {
     /// # include!("../../doctest_setup.rs");
     /// #
     /// # #[cfg(feature = "postgres")]
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     use schema::users::dsl::*;
     /// #     let connection = &mut establish_connection();
     /// let deleted_name = diesel::delete(users.filter(name.eq("Sean")))
@@ -311,7 +311,7 @@ impl<T: QuerySource, U> DeleteStatement<T, U, NoReturningClause> {
     /// assert_eq!(Ok("Sean".to_string()), deleted_name);
     /// # }
     /// # #[cfg(not(feature = "postgres"))]
-    /// # fn main() {}
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {}
     /// ```
     pub fn returning<E>(self, returns: E) -> DeleteStatement<T, U, ReturningClause<E>>
     where

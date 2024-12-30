@@ -15,7 +15,7 @@ use crate::sql_types::VarChar;
 /// ```rust
 /// # include!("../doctest_setup.rs");
 /// #
-/// # fn main() {
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
 /// #     use schema::users::dsl::*;
 /// #     use diesel::insert_into;
 /// #     let connection = &mut establish_connection();

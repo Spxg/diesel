@@ -62,11 +62,11 @@ pub(super) use self::result::PgResult;
 /// ```rust
 /// # include!("../../doctest_setup.rs");
 /// #
-/// # fn main() {
-/// #     run_test().unwrap();
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+/// #     run_test().await.unwrap();
 /// # }
 /// #
-/// # fn run_test() -> QueryResult<()> {
+/// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
 /// #     use schema::users;
 /// #     let connection = &mut establish_connection();
 /// use diesel::connection::DefaultLoadingMode;
@@ -98,11 +98,11 @@ pub(super) use self::result::PgResult;
 /// ```compile_fail
 /// # include!("../../doctest_setup.rs");
 /// #
-/// # fn main() {
-/// #     run_test().unwrap();
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+/// #     run_test().await.unwrap();
 /// # }
 /// #
-/// # fn run_test() -> QueryResult<()> {
+/// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
 /// #     use schema::users;
 /// #     let connection = &mut establish_connection();
 /// use diesel::pg::PgRowByRowLoadingMode;
@@ -387,11 +387,11 @@ impl PgConnection {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use schema::users::dsl::*;
     /// #     let conn = &mut connection_no_transaction();
     /// conn.build_transaction()

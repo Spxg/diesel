@@ -21,11 +21,11 @@
 /// #     title: String,
 /// # }
 /// #
-/// # fn main() {
-/// #     run_test();
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+/// #     run_test().await.unwrap();
 /// # }
 /// #
-/// # fn run_test() -> QueryResult<()> {
+/// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
 /// #     let connection = &mut establish_connection();
 /// #     use self::users::dsl::*;
 /// #     use self::posts::dsl::{posts, title};

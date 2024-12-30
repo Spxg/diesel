@@ -365,7 +365,7 @@ pub mod sql_types {
     ///     }
     /// }
     ///
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     use diesel::insert_into;
     /// #     use self::items::dsl::*;
     /// #     let connection = &mut connection_no_data();
@@ -410,7 +410,7 @@ pub mod sql_types {
     ///     }
     /// }
     ///
-    /// # fn main() -> Result<(), Box<dyn std::error::Error>> {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() -> Result<(), Box<dyn std::error::Error>> {
     /// #     use diesel::insert_into;
     /// #     use self::devices::dsl::*;
     /// #     let connection = &mut connection_no_data();
@@ -458,7 +458,7 @@ pub mod sql_types {
     ///     }
     /// }
     ///
-    /// # fn main() -> Result<(), Box<dyn std::error::Error>> {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() -> Result<(), Box<dyn std::error::Error>> {
     /// #     use diesel::insert_into;
     /// #     use self::devices::dsl::*;
     /// #     let connection = &mut connection_no_data();
@@ -529,7 +529,7 @@ pub mod sql_types {
     /// }
     ///
     /// # #[cfg(any(feature = "network-address", feature = "ipnet-address"))]
-    /// # fn main() -> Result<(), Box<dyn std::error::Error>> {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() -> Result<(), Box<dyn std::error::Error>> {
     ///
     /// #     use diesel::insert_into;
     /// #     use self::clients::dsl::*;
@@ -549,7 +549,7 @@ pub mod sql_types {
     /// # }
     /// #
     /// # #[cfg(not(any(feature = "network-address", feature = "ipnet-address")))]
-    /// # fn main() {}
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {}
     /// ```
     #[cfg(feature = "postgres_backend")]
     #[derive(Debug, Clone, Copy, Default, QueryId, SqlType)]
@@ -603,7 +603,7 @@ pub mod sql_types {
     /// }
     ///
     /// # #[cfg(any(feature = "network-address", feature = "ipnet-address"))]
-    /// # fn main() -> Result<(), Box<dyn std::error::Error>> {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() -> Result<(), Box<dyn std::error::Error>> {
     ///
     /// #     use diesel::insert_into;
     /// #     use self::clients::dsl::*;
@@ -622,7 +622,7 @@ pub mod sql_types {
     /// #     Ok(())
     /// # }
     /// # #[cfg(not(any(feature = "network-address", feature = "ipnet-address")))]
-    /// # fn main() {}
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {}
     /// ```
     #[cfg(feature = "postgres_backend")]
     #[derive(Debug, Clone, Copy, Default, QueryId, SqlType)]

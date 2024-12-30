@@ -75,11 +75,11 @@ where
     /// #     }
     /// # }
     /// #
-    /// # fn main() {
-    /// #     run_test();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::insert_into;
     /// #     use self::users::dsl::*;
     /// #     let connection = &mut connection_no_data();
@@ -280,7 +280,7 @@ impl<T: QuerySource, U, Op> InsertStatement<T, U, Op> {
     /// # include!("../../doctest_setup.rs");
     /// #
     /// # #[cfg(feature = "postgres")]
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     use schema::users::dsl::*;
     /// #     let connection = &mut establish_connection();
     /// let inserted_names = diesel::insert_into(users)
@@ -294,7 +294,7 @@ impl<T: QuerySource, U, Op> InsertStatement<T, U, Op> {
     /// assert!(inserted_names.contains(&"Jimmy".to_string()));
     /// # }
     /// # #[cfg(not(feature = "postgres"))]
-    /// # fn main() {}
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {}
     /// ```
     pub fn returning<E>(self, returns: E) -> InsertStatement<T, U, Op, ReturningClause<E>>
     where

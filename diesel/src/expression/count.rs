@@ -22,7 +22,7 @@ define_sql_function! {
     /// # include!("../doctest_setup.rs");
     /// # use diesel::dsl::*;
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     use schema::animals::dsl::*;
     /// #     let connection = &mut establish_connection();
     /// assert_eq!(Ok(1), animals.select(count(name)).first(connection));
@@ -48,7 +48,7 @@ define_sql_function! {
 /// # include!("../doctest_setup.rs");
 /// # use diesel::dsl::*;
 /// #
-/// # fn main() {
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
 /// #     use schema::users::dsl::*;
 /// #     let connection = &mut establish_connection();
 /// assert_eq!(Ok(2), users.select(count_star()).first(connection));
@@ -89,7 +89,7 @@ impl_selectable_expression!(CountStar);
 /// # include!("../doctest_setup.rs");
 /// # use diesel::dsl::*;
 /// #
-/// # fn main() {
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
 /// #     use schema::posts::dsl::*;
 /// #     let connection = &mut establish_connection();
 /// let unique_user_count = posts.select(count_distinct(user_id)).first(connection);

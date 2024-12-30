@@ -45,7 +45,7 @@ pub use diesel_derives::table_proc as table;
 /// allow_tables_to_appear_in_same_query!(posts, users);
 /// # */
 ///
-/// # fn main() {
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
 /// let implicit_on_clause = users::table.inner_join(posts::table);
 /// let implicit_on_clause_sql = diesel::debug_query::<DB, _>(&implicit_on_clause).to_string();
 ///
@@ -205,7 +205,7 @@ macro_rules! joinable_inner {
 /// allow_tables_to_appear_in_same_query!(comments, users);
 /// allow_tables_to_appear_in_same_query!(posts, users);
 /// #
-/// # fn main() {}
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {}
 /// ```
 #[macro_export]
 macro_rules! allow_tables_to_appear_in_same_query {
@@ -412,7 +412,7 @@ macro_rules! __diesel_impl_allow_in_same_group_by_clause {
 /// // This would be required
 ///
 /// allow_columns_to_appear_in_same_group_by_clause!(users::name, posts::id, posts::title);
-/// # fn main() {
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
 /// // to do implement the following join
 /// users::table.inner_join(posts::table).group_by((users::name, posts::id, posts::title))
 /// # ;
@@ -430,7 +430,7 @@ macro_rules! __diesel_impl_allow_in_same_group_by_clause {
 /// allow_columns_to_appear_in_same_group_by_clause!(users::name, posts::title);
 /// allow_columns_to_appear_in_same_group_by_clause!(users::name, posts::id);
 /// allow_columns_to_appear_in_same_group_by_clause!(posts::title, posts::id);
-/// # fn main() {}
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {}
 /// ```
 #[macro_export]
 macro_rules! allow_columns_to_appear_in_same_group_by_clause {

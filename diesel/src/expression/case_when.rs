@@ -12,7 +12,7 @@ use super::{AsExpression, TypedExpressionType};
 /// ```
 /// # include!("../doctest_setup.rs");
 /// #
-/// # fn main() {
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
 /// #     use schema::users::dsl::*;
 /// #     let connection = &mut establish_connection();
 /// use diesel::dsl::case_when;
@@ -30,7 +30,7 @@ use super::{AsExpression, TypedExpressionType};
 /// ```
 /// # include!("../doctest_setup.rs");
 /// #
-/// # fn main() {
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
 /// #     use schema::users::dsl::*;
 /// #     let connection = &mut establish_connection();
 /// use diesel::dsl::case_when;
@@ -54,7 +54,7 @@ use super::{AsExpression, TypedExpressionType};
 /// ```
 /// # include!("../doctest_setup.rs");
 /// #
-/// # fn main() {
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
 /// #     use schema::users::dsl::*;
 /// #     let connection = &mut establish_connection();
 /// use diesel::dsl::case_when;

@@ -13,7 +13,7 @@ use crate::result::QueryResult;
 /// # extern crate diesel;
 /// # include!("../../upsert/on_conflict_docs_setup.rs");
 /// #
-/// # fn main() {
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
 /// #     use self::users::dsl::*;
 /// use diesel::upsert::*;
 ///

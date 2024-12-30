@@ -209,7 +209,7 @@ macro_rules! __diesel_operator_to_sql {
 /// # use diesel::sql_types::SqlType;
 /// # use diesel::expression::TypedExpressionType;
 /// #
-/// # fn main() {
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
 /// #     use schema::users::dsl::*;
 /// #     let connection = &mut establish_connection();
 /// diesel::infix_operator!(MyEq, " = ");

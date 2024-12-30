@@ -41,11 +41,11 @@ pub trait Insertable<T> {
     /// ```rust
     /// # include!("doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use schema::{posts, users};
     /// #     let conn = &mut establish_connection();
     /// #     diesel::delete(posts::table).execute(conn)?;

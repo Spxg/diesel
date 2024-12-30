@@ -30,7 +30,7 @@ pub trait PgExpressionMethods: Expression + Sized {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     use schema::users::dsl::*;
     /// #     let connection = &mut establish_connection();
     /// let distinct = users.select(id).filter(name.is_distinct_from("Sean"));
@@ -58,7 +58,7 @@ pub trait PgExpressionMethods: Expression + Sized {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     use schema::users::dsl::*;
     /// #     let connection = &mut establish_connection();
     /// let distinct = users.select(id).filter(name.is_distinct_from("Sean"));
@@ -126,11 +126,11 @@ pub trait PgExpressionMethods: Expression + Sized {
     /// #     }
     /// # }
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use std::collections::Bound;
     /// #     use diesel::dsl::int4range;
     /// #     use diesel::sql_types::Integer;
@@ -186,12 +186,12 @@ pub trait PgTimestampExpressionMethods: Expression + Sized {
     /// #     }
     /// # }
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
     /// # #[cfg(all(feature = "postgres", feature = "chrono"))]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use self::timestamps::dsl::*;
     /// #     use chrono::*;
     /// #     let connection = &mut establish_connection();
@@ -217,7 +217,7 @@ pub trait PgTimestampExpressionMethods: Expression + Sized {
     /// # }
     /// #
     /// # #[cfg(not(all(feature = "postgres", feature = "chrono")))]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     Ok(())
     /// # }
     /// ```
@@ -250,11 +250,11 @@ pub trait PgArrayExpressionMethods: Expression + Sized {
     /// #     }
     /// # }
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use self::posts::dsl::*;
     /// #     let conn = &mut establish_connection();
     /// #     diesel::sql_query("DROP TABLE IF EXISTS posts").execute(conn).unwrap();
@@ -311,11 +311,11 @@ pub trait PgArrayExpressionMethods: Expression + Sized {
     /// #     }
     /// # }
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use self::posts::dsl::*;
     /// #     let conn = &mut establish_connection();
     /// #     diesel::sql_query("DROP TABLE IF EXISTS posts").execute(conn).unwrap();
@@ -364,11 +364,11 @@ pub trait PgArrayExpressionMethods: Expression + Sized {
     /// #     }
     /// # }
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use self::posts::dsl::*;
     /// #     let conn = &mut establish_connection();
     /// #     diesel::sql_query("DROP TABLE IF EXISTS posts").execute(conn).unwrap();
@@ -419,11 +419,11 @@ pub trait PgArrayExpressionMethods: Expression + Sized {
     /// #     }
     /// # }
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use self::posts::dsl::*;
     /// #     let conn = &mut establish_connection();
     /// #     diesel::sql_query("DROP TABLE IF EXISTS posts").execute(conn).unwrap();
@@ -473,11 +473,11 @@ pub trait PgArrayExpressionMethods: Expression + Sized {
     /// #     }
     /// # }
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use self::posts::dsl::*;
     /// #     let conn = &mut establish_connection();
     /// #     diesel::sql_query("DROP TABLE IF EXISTS posts").execute(conn).unwrap();
@@ -534,11 +534,11 @@ pub trait PgSortExpressionMethods: Sized {
     /// #     }
     /// # }
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use self::nullable_numbers::dsl::*;
     /// #     let connection = &mut connection_no_data();
     /// #     diesel::sql_query("CREATE TABLE nullable_numbers (nullable_number INTEGER)").execute(connection)?;
@@ -582,11 +582,11 @@ pub trait PgSortExpressionMethods: Sized {
     /// #     }
     /// # }
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use self::nullable_numbers::dsl::*;
     /// #     let connection = &mut connection_no_data();
     /// #     diesel::sql_query("CREATE TABLE nullable_numbers (nullable_number INTEGER)").execute(connection)?;
@@ -628,11 +628,11 @@ pub trait PgTextExpressionMethods: Expression + Sized {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use schema::animals::dsl::*;
     /// #     let connection = &mut establish_connection();
     /// let starts_with_s = animals
@@ -657,11 +657,11 @@ pub trait PgTextExpressionMethods: Expression + Sized {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use schema::animals::dsl::*;
     /// #     let connection = &mut establish_connection();
     /// let doesnt_start_with_s = animals
@@ -685,11 +685,11 @@ pub trait PgTextExpressionMethods: Expression + Sized {
     /// ```
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use schema::animals::dsl::*;
     /// #     let connection = &mut establish_connection();
     /// let starts_with_s = animals
@@ -713,11 +713,11 @@ pub trait PgTextExpressionMethods: Expression + Sized {
     /// ```
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use schema::animals::dsl::*;
     /// #     let connection = &mut establish_connection();
     /// let doesnt_start_with_s = animals
@@ -745,11 +745,11 @@ pub trait PgTextExpressionMethods: Expression + Sized {
     /// ```rust,no_run
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use std::collections::Bound;
     /// #     use diesel::sql_types::Text;
     /// #
@@ -783,11 +783,11 @@ pub trait PgTextExpressionMethods: Expression + Sized {
     /// ```rust,no_run
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use std::collections::Bound;
     /// #     use diesel::sql_types::Text;
     /// #
@@ -821,11 +821,11 @@ pub trait PgTextExpressionMethods: Expression + Sized {
     /// ```rust,no_run
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use std::collections::Bound;
     /// #     use diesel::sql_types::Text;
     /// #
@@ -861,11 +861,11 @@ pub trait PgTextExpressionMethods: Expression + Sized {
     /// ```rust,no_run
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use std::collections::Bound;
     /// #     use diesel::sql_types::Text;
     /// #
@@ -901,11 +901,11 @@ pub trait PgTextExpressionMethods: Expression + Sized {
     /// ```rust,no_run
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use std::collections::Bound;
     /// #     use diesel::sql_types::Text;
     /// #
@@ -941,11 +941,11 @@ pub trait PgTextExpressionMethods: Expression + Sized {
     /// ```rust,no_run
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use std::collections::Bound;
     /// #     use diesel::sql_types::Text;
     /// #
@@ -981,11 +981,11 @@ pub trait PgTextExpressionMethods: Expression + Sized {
     /// ```rust,no_run
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use std::collections::Bound;
     /// #     use diesel::sql_types::{Text, Nullable};
     /// #     use diesel::dsl::sql;
@@ -1023,11 +1023,11 @@ pub trait PgTextExpressionMethods: Expression + Sized {
     /// ```rust,no_run
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use std::collections::Bound;
     /// #     use diesel::sql_types::Text;
     /// #
@@ -1151,11 +1151,11 @@ pub trait PgRangeExpressionMethods: Expression + Sized {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::sql_types::{Integer, Range, Multirange};
     /// #
     /// #     let conn = &mut establish_connection();
@@ -1215,11 +1215,11 @@ pub trait PgRangeExpressionMethods: Expression + Sized {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::sql_types::{Integer, Range, Multirange};
     /// #     let conn = &mut establish_connection();
     /// assert!(diesel::select(
@@ -1284,11 +1284,11 @@ pub trait PgRangeExpressionMethods: Expression + Sized {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::sql_types::{Integer, Range, Multirange};
     /// #     let conn = &mut establish_connection();
     /// assert!(diesel::select(
@@ -1364,11 +1364,11 @@ pub trait PgRangeExpressionMethods: Expression + Sized {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::sql_types::{Integer, Range, Multirange};
     /// #     let conn = &mut establish_connection();
     /// assert!(diesel::select(
@@ -1441,11 +1441,11 @@ pub trait PgRangeExpressionMethods: Expression + Sized {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::sql_types::{Integer, Range, Multirange};
     /// #     let conn = &mut establish_connection();
     /// #
@@ -1525,11 +1525,11 @@ pub trait PgRangeExpressionMethods: Expression + Sized {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::sql_types::{Integer, Range, Multirange};
     /// #     let conn = &mut establish_connection();
     /// #
@@ -1607,11 +1607,11 @@ pub trait PgRangeExpressionMethods: Expression + Sized {
     /// #     }
     /// # }
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use self::posts::dsl::*;
     /// #     use std::collections::Bound;
     /// #     let conn = &mut establish_connection();
@@ -1690,11 +1690,11 @@ pub trait PgRangeExpressionMethods: Expression + Sized {
     /// #     }
     /// # }
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use self::posts::dsl::*;
     /// #     use std::collections::Bound;
     /// #     let conn = &mut establish_connection();
@@ -1781,11 +1781,11 @@ pub trait PgRangeExpressionMethods: Expression + Sized {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::sql_types::{Integer, Range, Multirange};
     /// #     let conn = &mut establish_connection();
     /// assert!(diesel::select(
@@ -1839,11 +1839,11 @@ pub trait PgRangeExpressionMethods: Expression + Sized {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::sql_types::{Integer, Range, Multirange};
     /// #     let conn = &mut establish_connection();
     /// assert!(diesel::select(
@@ -1894,11 +1894,11 @@ pub trait PgRangeExpressionMethods: Expression + Sized {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::sql_types::{Integer, Range, Multirange};
     /// #     let conn = &mut establish_connection();
     /// assert!(diesel::select(
@@ -1952,11 +1952,11 @@ pub trait PgRangeExpressionMethods: Expression + Sized {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::sql_types::{Integer, Range, Multirange};
     /// #     let conn = &mut establish_connection();
     /// assert!(diesel::select(
@@ -2004,12 +2004,12 @@ pub trait PgNetExpressionMethods: Expression + Sized {
     /// #     }
     /// # }
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
     /// # #[cfg(feature = "ipnetwork")]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use self::hosts::dsl::*;
     /// #     use ipnetwork::IpNetwork;
     /// #     use std::str::FromStr;
@@ -2039,7 +2039,7 @@ pub trait PgNetExpressionMethods: Expression + Sized {
     /// # }
     /// #
     /// # #[cfg(not(feature = "ipnetwork"))]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     Ok(())
     /// # }
     /// ```
@@ -2066,12 +2066,12 @@ pub trait PgNetExpressionMethods: Expression + Sized {
     /// #     }
     /// # }
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
     /// # #[cfg(feature = "ipnetwork")]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use self::hosts::dsl::*;
     /// #     use ipnetwork::IpNetwork;
     /// #     use std::str::FromStr;
@@ -2101,7 +2101,7 @@ pub trait PgNetExpressionMethods: Expression + Sized {
     /// # }
     /// #
     /// # #[cfg(not(feature = "ipnetwork"))]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     Ok(())
     /// # }
     /// ```
@@ -2128,12 +2128,12 @@ pub trait PgNetExpressionMethods: Expression + Sized {
     /// #     }
     /// # }
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
     /// # #[cfg(feature = "ipnetwork")]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use self::hosts::dsl::*;
     /// #     use ipnetwork::IpNetwork;
     /// #     use std::str::FromStr;
@@ -2163,7 +2163,7 @@ pub trait PgNetExpressionMethods: Expression + Sized {
     /// # }
     /// #
     /// # #[cfg(not(feature = "ipnetwork"))]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     Ok(())
     /// # }
     /// ```
@@ -2191,12 +2191,12 @@ pub trait PgNetExpressionMethods: Expression + Sized {
     /// #     }
     /// # }
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
     /// # #[cfg(feature = "ipnetwork")]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use self::hosts::dsl::*;
     /// #     use ipnetwork::IpNetwork;
     /// #     use std::str::FromStr;
@@ -2221,7 +2221,7 @@ pub trait PgNetExpressionMethods: Expression + Sized {
     /// # }
     /// #
     /// # #[cfg(not(feature = "ipnetwork"))]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     Ok(())
     /// # }
     /// ```
@@ -2249,12 +2249,12 @@ pub trait PgNetExpressionMethods: Expression + Sized {
     /// #     }
     /// # }
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
     /// # #[cfg(feature = "ipnetwork")]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use self::hosts::dsl::*;
     /// #     use ipnetwork::IpNetwork;
     /// #     use std::str::FromStr;
@@ -2284,7 +2284,7 @@ pub trait PgNetExpressionMethods: Expression + Sized {
     /// # }
     /// #
     /// # #[cfg(not(feature = "ipnetwork"))]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     Ok(())
     /// # }
     /// ```
@@ -2311,12 +2311,12 @@ pub trait PgNetExpressionMethods: Expression + Sized {
     /// #     }
     /// # }
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
     /// # #[cfg(feature = "ipnetwork")]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use self::hosts::dsl::*;
     /// #     use ipnetwork::IpNetwork;
     /// #     use std::str::FromStr;
@@ -2335,7 +2335,7 @@ pub trait PgNetExpressionMethods: Expression + Sized {
     /// # }
     /// #
     /// # #[cfg(not(feature = "ipnetwork"))]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     Ok(())
     /// # }
     /// ```
@@ -2362,12 +2362,12 @@ pub trait PgNetExpressionMethods: Expression + Sized {
     /// #     }
     /// # }
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
     /// # #[cfg(feature = "ipnetwork")]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use self::hosts::dsl::*;
     /// #     use ipnetwork::IpNetwork;
     /// #     use std::str::FromStr;
@@ -2386,7 +2386,7 @@ pub trait PgNetExpressionMethods: Expression + Sized {
     /// # }
     /// #
     /// # #[cfg(not(feature = "ipnetwork"))]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     Ok(())
     /// # }
     /// ```
@@ -2413,12 +2413,12 @@ pub trait PgNetExpressionMethods: Expression + Sized {
     /// #     }
     /// # }
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
     /// # #[cfg(feature = "ipnetwork")]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use self::hosts::dsl::*;
     /// #     use ipnetwork::IpNetwork;
     /// #     use std::str::FromStr;
@@ -2437,7 +2437,7 @@ pub trait PgNetExpressionMethods: Expression + Sized {
     /// # }
     /// #
     /// # #[cfg(not(feature = "ipnetwork"))]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     Ok(())
     /// # }
     /// ```
@@ -2476,12 +2476,12 @@ pub trait PgJsonbExpressionMethods: Expression + Sized {
     /// #    }
     /// # }
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     ///
     /// # #[cfg(feature = "serde_json")]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use self::contacts::dsl::*;
     /// #     let conn = &mut establish_connection();
     /// #     diesel::sql_query("DROP TABLE IF EXISTS contacts").execute(conn).unwrap();
@@ -2520,7 +2520,7 @@ pub trait PgJsonbExpressionMethods: Expression + Sized {
     /// #     Ok(())
     /// # }
     /// # #[cfg(not(feature = "serde_json"))]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     Ok(())
     /// # }
     /// ```
@@ -2549,12 +2549,12 @@ pub trait PgJsonbExpressionMethods: Expression + Sized {
     /// #    }
     /// # }
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     ///
     /// # #[cfg(feature = "serde_json")]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use self::contacts::dsl::*;
     /// #     let conn = &mut establish_connection();
     /// #     diesel::sql_query("DROP TABLE IF EXISTS contacts").execute(conn).unwrap();
@@ -2582,7 +2582,7 @@ pub trait PgJsonbExpressionMethods: Expression + Sized {
     /// #     Ok(())
     /// # }
     /// # #[cfg(not(feature = "serde_json"))]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     Ok(())
     /// # }
     /// ```
@@ -2610,12 +2610,12 @@ pub trait PgJsonbExpressionMethods: Expression + Sized {
     /// #    }
     /// # }
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     ///
     /// # #[cfg(feature = "serde_json")]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use self::contacts::dsl::*;
     /// #     let conn = &mut establish_connection();
     /// #     diesel::sql_query("DROP TABLE IF EXISTS contacts").execute(conn).unwrap();
@@ -2643,7 +2643,7 @@ pub trait PgJsonbExpressionMethods: Expression + Sized {
     /// #     Ok(())
     /// # }
     /// # #[cfg(not(feature = "serde_json"))]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     Ok(())
     /// # }
     /// ``````
@@ -2671,12 +2671,12 @@ pub trait PgJsonbExpressionMethods: Expression + Sized {
     /// #    }
     /// # }
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     ///
     /// # #[cfg(feature = "serde_json")]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use self::contacts::dsl::*;
     /// #     let conn = &mut establish_connection();
     /// #     diesel::sql_query("DROP TABLE IF EXISTS contacts").execute(conn).unwrap();
@@ -2704,7 +2704,7 @@ pub trait PgJsonbExpressionMethods: Expression + Sized {
     /// #     Ok(())
     /// # }
     /// # #[cfg(not(feature = "serde_json"))]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     Ok(())
     /// # }
     /// ``````
@@ -2732,12 +2732,12 @@ pub trait PgJsonbExpressionMethods: Expression + Sized {
     /// #    }
     /// # }
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
     /// # #[cfg(feature = "serde_json")]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use self::contacts::dsl::*;
     /// #     let conn = &mut establish_connection();
     /// #     diesel::sql_query("DROP TABLE IF EXISTS contacts").execute(conn).unwrap();
@@ -2764,7 +2764,7 @@ pub trait PgJsonbExpressionMethods: Expression + Sized {
     /// #     Ok(())
     /// # }
     /// # #[cfg(not(feature = "serde_json"))]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     Ok(())
     /// # }
     /// ```
@@ -2794,12 +2794,12 @@ pub trait PgJsonbExpressionMethods: Expression + Sized {
     /// #    }
     /// # }
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
     /// # #[cfg(feature = "serde_json")]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use self::contacts::dsl::*;
     /// #     let conn = &mut establish_connection();
     /// #     diesel::sql_query("DROP TABLE IF EXISTS contacts").execute(conn).unwrap();
@@ -2829,7 +2829,7 @@ pub trait PgJsonbExpressionMethods: Expression + Sized {
     /// #     Ok(())
     /// # }
     /// # #[cfg(not(feature = "serde_json"))]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     Ok(())
     /// # }
     /// ```
@@ -2860,12 +2860,12 @@ pub trait PgJsonbExpressionMethods: Expression + Sized {
     /// #    }
     /// # }
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     ///
     /// # #[cfg(feature = "serde_json")]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use self::contacts::dsl::*;
     /// #     let conn = &mut establish_connection();
     /// #     diesel::sql_query("DROP TABLE IF EXISTS contacts").execute(conn).unwrap();
@@ -2936,7 +2936,7 @@ pub trait PgJsonbExpressionMethods: Expression + Sized {
     /// #     Ok(())
     /// # }
     /// # #[cfg(not(feature = "serde_json"))]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     Ok(())
     /// # }
     ///
@@ -2972,12 +2972,12 @@ pub trait PgJsonbExpressionMethods: Expression + Sized {
     /// #    }
     /// # }
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     ///
     /// # #[cfg(feature = "serde_json")]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use self::contacts::dsl::*;
     /// #     let conn = &mut establish_connection();
     /// #     diesel::sql_query("DROP TABLE IF EXISTS contacts").execute(conn).unwrap();
@@ -3056,7 +3056,7 @@ pub trait PgJsonbExpressionMethods: Expression + Sized {
     /// #     Ok(())
     /// # }
     /// # #[cfg(not(feature = "serde_json"))]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     Ok(())
     /// # }
     ///
@@ -3098,12 +3098,12 @@ pub trait PgAnyJsonExpressionMethods: Expression + Sized {
     /// #    }
     /// # }
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     ///
     /// # #[cfg(feature = "serde_json")]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use self::contacts::dsl::*;
     /// #     let conn = &mut establish_connection();
     /// #     diesel::sql_query("DROP TABLE IF EXISTS contacts").execute(conn).unwrap();
@@ -3162,7 +3162,7 @@ pub trait PgAnyJsonExpressionMethods: Expression + Sized {
     /// #     Ok(())
     /// # }
     /// # #[cfg(not(feature = "serde_json"))]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     Ok(())
     /// # }
     /// ```
@@ -3200,12 +3200,12 @@ pub trait PgAnyJsonExpressionMethods: Expression + Sized {
     /// #    }
     /// # }
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     ///
     /// # #[cfg(feature = "serde_json")]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use self::contacts::dsl::*;
     /// #     let conn = &mut establish_connection();
     /// #     diesel::sql_query("DROP TABLE IF EXISTS contacts").execute(conn).unwrap();
@@ -3264,7 +3264,7 @@ pub trait PgAnyJsonExpressionMethods: Expression + Sized {
     /// #     Ok(())
     /// # }
     /// # #[cfg(not(feature = "serde_json"))]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     Ok(())
     /// # }
     /// ```
@@ -3302,12 +3302,12 @@ pub trait PgAnyJsonExpressionMethods: Expression + Sized {
     /// #    }
     /// # }
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     ///
     /// # #[cfg(feature = "serde_json")]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use self::contacts::dsl::*;
     /// #     let conn = &mut establish_connection();
     /// #     diesel::sql_query("DROP TABLE IF EXISTS contacts").execute(conn).unwrap();
@@ -3346,7 +3346,7 @@ pub trait PgAnyJsonExpressionMethods: Expression + Sized {
     /// #     Ok(())
     /// # }
     /// # #[cfg(not(feature = "serde_json"))]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     Ok(())
     /// # }
     /// ```
@@ -3380,12 +3380,12 @@ pub trait PgAnyJsonExpressionMethods: Expression + Sized {
     /// #    }
     /// # }
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     ///
     /// # #[cfg(feature = "serde_json")]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use self::contacts::dsl::*;
     /// #     let conn = &mut establish_connection();
     /// #     diesel::sql_query("DROP TABLE IF EXISTS contacts").execute(conn).unwrap();
@@ -3425,7 +3425,7 @@ pub trait PgAnyJsonExpressionMethods: Expression + Sized {
     /// #     Ok(())
     /// # }
     /// # #[cfg(not(feature = "serde_json"))]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     Ok(())
     /// # }
     /// ```
@@ -3466,7 +3466,7 @@ pub trait PgBinaryExpressionMethods: Expression + Sized {
     /// #     }
     /// # }
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     use self::users::dsl::*;
     /// #     use diesel::insert_into;
     /// #
@@ -3526,7 +3526,7 @@ pub trait PgBinaryExpressionMethods: Expression + Sized {
     /// #     }
     /// # }
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     use self::users::dsl::*;
     /// #     use diesel::insert_into;
     /// #
@@ -3576,7 +3576,7 @@ pub trait PgBinaryExpressionMethods: Expression + Sized {
     /// #     }
     /// # }
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     use self::users::dsl::*;
     /// #     use diesel::insert_into;
     /// #

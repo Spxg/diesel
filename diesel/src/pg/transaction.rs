@@ -50,8 +50,8 @@ where
     /// # include!("../doctest_setup.rs");
     /// # use diesel::sql_query;
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
     /// # table! {
@@ -61,7 +61,7 @@ where
     /// #     }
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use users_for_read_only::table as users;
     /// #     use users_for_read_only::columns::*;
     /// #     let conn = &mut connection_no_transaction();
@@ -103,11 +103,11 @@ where
     /// # use diesel::result::Error::RollbackTransaction;
     /// # use diesel::sql_query;
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     assert_eq!(run_test(), Err(RollbackTransaction));
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use schema::users::dsl::*;
     /// #     let conn = &mut connection_no_transaction();
     /// conn.build_transaction()
@@ -144,11 +144,11 @@ where
     /// ```rust
     /// # include!("../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use schema::users::dsl::*;
     /// #     let conn = &mut connection_no_transaction();
     /// conn.build_transaction()
@@ -171,11 +171,11 @@ where
     /// ```rust
     /// # include!("../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use schema::users::dsl::*;
     /// #     let conn = &mut connection_no_transaction();
     /// conn.build_transaction()
@@ -198,11 +198,11 @@ where
     /// ```rust
     /// # include!("../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use schema::users::dsl::*;
     /// #     let conn = &mut connection_no_transaction();
     /// conn.build_transaction()
@@ -222,11 +222,11 @@ where
     /// ```rust
     /// # include!("../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use schema::users::dsl::*;
     /// #     let conn = &mut connection_no_transaction();
     /// conn.build_transaction()
@@ -246,11 +246,11 @@ where
     /// ```rust
     /// # include!("../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use schema::users::dsl::*;
     /// #     let conn = &mut connection_no_transaction();
     /// conn.build_transaction()

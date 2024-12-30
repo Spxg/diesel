@@ -6,7 +6,7 @@
 /// -------------
 /// ```rust
 /// # include!("../../doctest_setup.rs");
-/// fn main() {
+/// #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
 ///     use schema::users;
 ///     let connection = &mut establish_connection();
 ///     let (users1, users2) = diesel::alias!(schema::users as user1, schema::users as user2);
@@ -49,7 +49,7 @@
 /// {
 ///     schema::posts::table.inner_join(users_alias)
 /// }
-/// # fn main() {
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
 /// #     some_function_that_returns_a_query_fragment();
 /// #     schema::posts::table.inner_join(USERS_ALIAS_2);
 /// # }
@@ -58,7 +58,7 @@
 /// Note that you may also use this form within a function, in the following way:
 /// ```rust
 /// # include!("../../doctest_setup.rs");
-/// fn main() {
+/// #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
 ///     diesel::alias!(schema::users as users_alias: UsersAlias);
 ///     users_alias.inner_join(schema::posts::table);
 /// }

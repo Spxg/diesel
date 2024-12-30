@@ -56,7 +56,7 @@ where
 /// # include!("../doctest_setup.rs");
 /// # use schema::{users, posts};
 /// #
-/// # fn main() {
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
 /// #     let connection = &mut establish_connection();
 /// let data = users::table
 ///     .left_join(posts::table.on(

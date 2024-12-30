@@ -23,17 +23,18 @@
 //!     user_id: i32,
 //!     title: String,
 //! }
-//!
-//! # fn main() {
-//! #     run_test().unwrap();
+//! # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+//! #     run_test().await.unwrap();
 //! # }
 //! #
-//! # fn run_test() -> QueryResult<()> {
+//! # 
+//! # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap(); 
 //! #     let connection = &mut establish_connection();
 //! #     use self::users::dsl::*;
 //! let user = users.find(2).get_result::<User>(connection)?;
 //! let users_post = Post::belonging_to(&user)
 //!     .first(connection)?;
+//! wasm_bindgen_test::console_log!("{users_post:?}");
 //! let expected = Post { id: 3, user_id: 2, title: "My first post too".into() };
 //! assert_eq!(expected, users_post);
 //! #     Ok(())
@@ -73,7 +74,7 @@
 //!     title: String,
 //! }
 //! #
-//! # fn main() {}
+//! # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {}
 //! ```
 //!
 //!
@@ -113,7 +114,7 @@
 //! #     title: String,
 //! # }
 //! #
-//! # fn main() {
+//! # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
 //! #   use self::users::dsl::*;
 //! #   let connection = &mut establish_connection();
 //! #
@@ -167,11 +168,11 @@
 //! #     title: String,
 //! # }
 //! #
-//! # fn main() {
-//! #     run_test();
+//! # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+//! #     run_test().await.unwrap();
 //! # }
 //! #
-//! # fn run_test() -> QueryResult<()> {
+//! # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
 //! #     let connection = &mut establish_connection();
 //! #     use self::users::dsl::*;
 //! #     use self::posts::dsl::{posts, title};
@@ -221,11 +222,11 @@
 //! #     title: String,
 //! # }
 //! #
-//! # fn main() {
-//! #     run_test();
+//! # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+//! #     run_test().await.unwrap();
 //! # }
 //! #
-//! # fn run_test() -> QueryResult<()> {
+//! # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
 //! #     let connection = &mut establish_connection();
 //! let users = users::table.load::<User>(connection)?;
 //! let posts = Post::belonging_to(&users)
@@ -289,7 +290,7 @@
 //! #     body: String,
 //! # }
 //! #
-//! # fn main() {
+//! # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
 //! #   let connection = &mut establish_connection();
 //! #
 //! let users: Vec<User> = users::table.load::<User>(connection)

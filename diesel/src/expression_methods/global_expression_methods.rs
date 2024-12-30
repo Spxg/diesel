@@ -33,7 +33,7 @@ pub trait ExpressionMethods: Expression + Sized {
     /// ```rust
     /// # include!("../doctest_setup.rs");
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     use schema::users::dsl::*;
     /// #     let connection = &mut establish_connection();
     /// let data = users.select(id).filter(name.eq("Sean"));
@@ -45,11 +45,11 @@ pub trait ExpressionMethods: Expression + Sized {
     /// ```rust
     /// # include!("../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use schema::animals::dsl::*;
     /// #     let connection = &mut establish_connection();
     /// #
@@ -83,7 +83,7 @@ pub trait ExpressionMethods: Expression + Sized {
     /// ```rust
     /// # include!("../doctest_setup.rs");
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     use schema::users::dsl::*;
     /// #     let connection = &mut establish_connection();
     /// let data = users.select(id).filter(name.ne("Sean"));
@@ -116,7 +116,7 @@ pub trait ExpressionMethods: Expression + Sized {
     /// ```rust
     /// # include!("../doctest_setup.rs");
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     use schema::users;
     /// #     use schema::posts;
     /// #     let connection = &mut establish_connection();
@@ -161,7 +161,7 @@ pub trait ExpressionMethods: Expression + Sized {
     /// ```rust
     /// # include!("../doctest_setup.rs");
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     use schema::users::dsl::*;
     /// #     let connection = &mut establish_connection();
     /// #     diesel::sql_query("INSERT INTO users (name) VALUES
@@ -193,11 +193,11 @@ pub trait ExpressionMethods: Expression + Sized {
     /// ```rust
     /// # include!("../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use schema::animals::dsl::*;
     /// #     let connection = &mut establish_connection();
     /// #
@@ -225,11 +225,11 @@ pub trait ExpressionMethods: Expression + Sized {
     /// ```rust
     /// # include!("../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use schema::animals::dsl::*;
     /// #     let connection = &mut establish_connection();
     /// #
@@ -257,11 +257,11 @@ pub trait ExpressionMethods: Expression + Sized {
     /// ```rust
     /// # include!("../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use schema::users::dsl::*;
     /// #     let connection = &mut establish_connection();
     /// let data = users
@@ -288,11 +288,11 @@ pub trait ExpressionMethods: Expression + Sized {
     /// ```rust
     /// # include!("../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use schema::users::dsl::*;
     /// #     let connection = &mut establish_connection();
     /// let data = users
@@ -319,11 +319,11 @@ pub trait ExpressionMethods: Expression + Sized {
     /// ```rust
     /// # include!("../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use schema::users::dsl::*;
     /// #     let connection = &mut establish_connection();
     /// let data = users
@@ -350,11 +350,11 @@ pub trait ExpressionMethods: Expression + Sized {
     /// ```rust
     /// # include!("../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use schema::users::dsl::*;
     /// #     let connection = &mut establish_connection();
     /// let data = users
@@ -382,7 +382,7 @@ pub trait ExpressionMethods: Expression + Sized {
     /// ```rust
     /// # include!("../doctest_setup.rs");
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     use schema::animals::dsl::*;
     /// #     let connection = &mut establish_connection();
     /// #
@@ -414,11 +414,11 @@ pub trait ExpressionMethods: Expression + Sized {
     /// ```rust
     /// # include!("../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use schema::animals::dsl::*;
     /// #     let connection = &mut establish_connection();
     /// #
@@ -450,11 +450,11 @@ pub trait ExpressionMethods: Expression + Sized {
     /// ```rust
     /// # include!("../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use schema::users::dsl::*;
     /// #     let connection = &mut establish_connection();
     /// #
@@ -483,7 +483,7 @@ pub trait ExpressionMethods: Expression + Sized {
     /// # include!("../doctest_setup.rs");
     /// # use diesel::expression::expression_types::NotSelectable;
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     use schema::users::dsl::*;
     /// #     let order = "name";
     /// let ordering: Box<dyn BoxableExpression<users, DB, SqlType = NotSelectable>> =
@@ -530,7 +530,7 @@ pub trait NullableExpressionMethods: Expression + Sized {
     /// # joinable!(posts -> users (user_id));
     /// # allow_tables_to_appear_in_same_query!(posts, users);
     ///
-    /// fn main() {
+    /// #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     ///     use self::users::dsl::*;
     ///     use self::posts::dsl::{posts, author_name};
     ///     let connection = &mut establish_connection();
@@ -571,7 +571,7 @@ pub trait NullableExpressionMethods: Expression + Sized {
     ///     }
     /// }
     ///
-    /// fn main() {
+    /// #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     ///     use self::animals::dsl::*;
     ///     let connection = &mut establish_connection();
     ///
@@ -598,7 +598,7 @@ pub trait NullableExpressionMethods: Expression + Sized {
     ///     }
     /// }
     ///
-    /// fn main() {
+    /// #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     ///     use diesel::result::{Error, UnexpectedNullError};
     ///     use self::animals::dsl::*;
     ///     let connection = &mut establish_connection();
@@ -636,7 +636,7 @@ pub trait NullableExpressionMethods: Expression + Sized {
     /// # joinable!(posts -> users (user_id));
     /// # allow_tables_to_appear_in_same_query!(posts, users);
     ///
-    /// fn main() {
+    /// #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     ///     use self::posts;
     ///     use self::users;
     ///     let connection = &mut establish_connection();

@@ -65,11 +65,11 @@ pub trait BelongsTo<Parent> {
 /// #     title: String,
 /// # }
 /// #
-/// # fn main() {
-/// #     run_test();
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+/// #     run_test().await.unwrap();
 /// # }
 /// #
-/// # fn run_test() -> QueryResult<()> {
+/// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
 /// #     let connection = &mut establish_connection();
 /// let users = users::table.load::<User>(connection)?;
 /// let posts = Post::belonging_to(&users)

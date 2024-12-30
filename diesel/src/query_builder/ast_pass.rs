@@ -187,7 +187,7 @@ where
     ///         Ok(())
     ///     }
     /// }
-    /// # fn main() {}
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {}
     /// ```
     pub fn push_sql(&mut self, sql: &str) {
         match self.internals {

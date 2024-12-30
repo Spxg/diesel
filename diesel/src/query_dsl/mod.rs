@@ -96,11 +96,11 @@ pub trait QueryDsl: Sized {
     /// ```rust
     /// # include!("../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use schema::users::dsl::*;
     /// #     let connection = &mut establish_connection();
     /// #     diesel::sql_query("DELETE FROM users").execute(connection).unwrap();
@@ -147,7 +147,7 @@ pub trait QueryDsl: Sized {
     /// #     }
     /// # }
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     use self::animals::dsl::*;
     /// #     let connection = &mut establish_connection();
     /// #     diesel::sql_query("DELETE FROM animals").execute(connection).unwrap();
@@ -218,11 +218,11 @@ pub trait QueryDsl: Sized {
     /// # include!("../doctest_setup.rs");
     /// # use schema::users;
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use self::users::dsl::*;
     /// #     let connection = &mut establish_connection();
     /// // By default, all columns will be selected
@@ -273,11 +273,11 @@ pub trait QueryDsl: Sized {
     /// #     }
     /// # }
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     let connection = &mut establish_connection();
     /// #     diesel::sql_query("DELETE FROM posts").execute(connection)?;
     /// #     diesel::insert_into(posts::table)
@@ -324,7 +324,7 @@ pub trait QueryDsl: Sized {
     /// ```rust
     /// # include!("../doctest_setup.rs");
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     use schema::users::dsl::*;
     /// #     let connection = &mut establish_connection();
     /// let count = users.count().get_result(connection);
@@ -413,7 +413,7 @@ pub trait QueryDsl: Sized {
     /// allow_tables_to_appear_in_same_query!(users, posts);
     /// # */
     ///
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     use self::users::dsl::{users, name};
     /// #     use self::posts::dsl::{posts, user_id, title};
     /// #     let connection = &mut establish_connection();
@@ -440,7 +440,7 @@ pub trait QueryDsl: Sized {
     /// allow_tables_to_appear_in_same_query!(users, posts);
     /// # */
     ///
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     use self::users::dsl::{users, name};
     /// #     use self::posts::dsl::{posts, user_id, title};
     /// #     let connection = &mut establish_connection();
@@ -474,7 +474,7 @@ pub trait QueryDsl: Sized {
     /// allow_tables_to_appear_in_same_query!(users, posts);
     /// # */
     ///
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     use self::users::dsl::{users, name};
     /// #     use self::posts::dsl::{posts, user_id, title};
     /// #     let connection = &mut establish_connection();
@@ -575,11 +575,11 @@ pub trait QueryDsl: Sized {
     /// #     }
     /// # }
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     let connection = &mut establish_connection();
     /// #     diesel::sql_query("DELETE FROM posts").execute(connection)?;
     /// #     diesel::insert_into(posts::table)
@@ -636,7 +636,7 @@ pub trait QueryDsl: Sized {
     /// ```rust
     /// # include!("../doctest_setup.rs");
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     use schema::users::dsl::*;
     /// #     let connection = &mut establish_connection();
     /// let seans_id = users.filter(name.eq("Sean")).select(id)
@@ -667,11 +667,11 @@ pub trait QueryDsl: Sized {
     /// ```rust
     /// # include!("../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use schema::animals::dsl::*;
     /// #     let connection = &mut establish_connection();
     /// #     diesel::delete(animals).execute(connection)?;
@@ -711,7 +711,7 @@ pub trait QueryDsl: Sized {
     /// ```rust
     /// # include!("../doctest_setup.rs");
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     use schema::users::dsl::*;
     /// #     use diesel::result::Error::NotFound;
     /// #     let connection = &mut establish_connection();
@@ -747,11 +747,11 @@ pub trait QueryDsl: Sized {
     /// ```rust
     /// # include!("../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use schema::users::dsl::*;
     /// #     let connection = &mut establish_connection();
     /// #     diesel::sql_query("DELETE FROM users").execute(connection)?;
@@ -814,11 +814,11 @@ pub trait QueryDsl: Sized {
     /// ```rust
     /// # include!("../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use schema::users::dsl::*;
     /// #     let connection = &mut establish_connection();
     /// #     diesel::sql_query("DELETE FROM users").execute(connection)?;
@@ -862,11 +862,11 @@ pub trait QueryDsl: Sized {
     /// # include!("../doctest_setup.rs");
     /// # use schema::users;
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use self::users::dsl::*;
     /// #     let connection = &mut establish_connection();
     /// #     diesel::delete(users).execute(connection)?;
@@ -911,11 +911,11 @@ pub trait QueryDsl: Sized {
     /// # include!("../doctest_setup.rs");
     /// # use schema::users;
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use self::users::dsl::*;
     /// #     let connection = &mut establish_connection();
     /// #     diesel::delete(users).execute(connection)?;
@@ -978,11 +978,11 @@ pub trait QueryDsl: Sized {
     /// # Examples
     /// ```rust
     /// # include!("../doctest_setup.rs");
-    /// # fn main() {
-    /// #     run_test();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use crate::schema::{users, posts};
     /// #     use diesel::dsl::count;
     /// #     let connection = &mut establish_connection();
@@ -1009,11 +1009,11 @@ pub trait QueryDsl: Sized {
     /// # Examples
     /// ```rust
     /// # include!("../doctest_setup.rs");
-    /// # fn main() {
-    /// #     run_test();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use crate::schema::{users, posts};
     /// #     use diesel::dsl::count;
     /// #     let connection = &mut establish_connection();
@@ -1047,12 +1047,12 @@ pub trait QueryDsl: Sized {
     ///
     /// ```
     /// # include!("../doctest_setup.rs");
-    /// # fn main() {
-    /// #     run_test();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
     /// # #[cfg(any(feature = "mysql", feature = "postgres"))]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use crate::schema::users;
     /// #     let connection = &mut establish_connection();
     /// // Executes `SELECT * FROM users FOR UPDATE`
@@ -1061,7 +1061,7 @@ pub trait QueryDsl: Sized {
     /// # Ok(())
     /// # }
     /// # #[cfg(feature = "sqlite")]
-    /// # fn run_test() -> QueryResult<()> { Ok(()) }
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap(); Ok(()) }
     /// ```
     fn for_update(self) -> ForUpdate<Self>
     where
@@ -1084,12 +1084,12 @@ pub trait QueryDsl: Sized {
     ///
     /// ```
     /// # include!("../doctest_setup.rs");
-    /// # fn main() {
-    /// #     run_test();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
     /// # #[cfg(feature = "postgres")]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use crate::schema::users;
     /// #     let connection = &mut establish_connection();
     /// // Executes `SELECT * FROM users FOR NO KEY UPDATE`
@@ -1098,7 +1098,7 @@ pub trait QueryDsl: Sized {
     /// # Ok(())
     /// # }
     /// # #[cfg(not(feature = "postgres"))]
-    /// # fn run_test() -> QueryResult<()> { Ok(()) }
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap(); Ok(()) }
     /// ```
     fn for_no_key_update(self) -> ForNoKeyUpdate<Self>
     where
@@ -1120,12 +1120,12 @@ pub trait QueryDsl: Sized {
     ///
     /// ```
     /// # include!("../doctest_setup.rs");
-    /// # fn main() {
-    /// #     run_test();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
     /// # #[cfg(any(feature = "mysql", feature = "postgres"))]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use crate::schema::users;
     /// #     let connection = &mut establish_connection();
     /// // Executes `SELECT * FROM users FOR SHARE`
@@ -1134,7 +1134,7 @@ pub trait QueryDsl: Sized {
     /// # Ok(())
     /// # }
     /// # #[cfg(feature = "sqlite")]
-    /// # fn run_test() -> QueryResult<()> { Ok(()) }
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap(); Ok(()) }
     /// ```
     fn for_share(self) -> ForShare<Self>
     where
@@ -1157,12 +1157,12 @@ pub trait QueryDsl: Sized {
     ///
     /// ```
     /// # include!("../doctest_setup.rs");
-    /// # fn main() {
-    /// #     run_test();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     ///
     /// # #[cfg(feature = "postgres")]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use crate::schema::users;
     /// #     let connection = &mut establish_connection();
     /// // Executes `SELECT * FROM users FOR KEY SHARE`
@@ -1171,7 +1171,7 @@ pub trait QueryDsl: Sized {
     /// # Ok(())
     /// # }
     /// # #[cfg(not(feature = "postgres"))]
-    /// # fn run_test() -> QueryResult<()> { Ok(()) }
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap(); Ok(()) }
     /// ```
     fn for_key_share(self) -> ForKeyShare<Self>
     where
@@ -1188,12 +1188,12 @@ pub trait QueryDsl: Sized {
     ///
     /// ```
     /// # include!("../doctest_setup.rs");
-    /// # fn main() {
-    /// #     run_test();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
     /// # #[cfg(any(feature = "postgres", feature = "mysql"))]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use crate::schema::users;
     /// #     let connection = &mut establish_connection();
     /// // Executes `SELECT * FROM users FOR UPDATE SKIP LOCKED`
@@ -1202,7 +1202,7 @@ pub trait QueryDsl: Sized {
     /// # Ok(())
     /// # }
     /// # #[cfg(feature = "sqlite")]
-    /// # fn run_test() -> QueryResult<()> { Ok(()) }
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap(); Ok(()) }
     /// ```
     fn skip_locked(self) -> SkipLocked<Self>
     where
@@ -1219,12 +1219,12 @@ pub trait QueryDsl: Sized {
     ///
     /// ```
     /// # include!("../doctest_setup.rs");
-    /// # fn main() {
-    /// #     run_test();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
     /// # #[cfg(any(feature = "mysql", feature = "postgres"))]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use crate::schema::users;
     /// #     let connection = &mut establish_connection();
     /// // Executes `SELECT * FROM users FOR UPDATE NOWAIT`
@@ -1233,7 +1233,7 @@ pub trait QueryDsl: Sized {
     /// # Ok(())
     /// # }
     /// # #[cfg(feature = "sqlite")]
-    /// # fn run_test() -> QueryResult<()> { Ok(()) }
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap(); Ok(()) }
     /// ```
     fn no_wait(self) -> NoWait<Self>
     where
@@ -1259,7 +1259,7 @@ pub trait QueryDsl: Sized {
     /// # include!("../doctest_setup.rs");
     /// # use schema::users;
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     use std::collections::HashMap;
     /// #     let connection = &mut establish_connection();
     /// #     let mut params = HashMap::new();
@@ -1288,7 +1288,7 @@ pub trait QueryDsl: Sized {
     /// # include!("../doctest_setup.rs");
     /// # use schema::users;
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     let connection = &mut establish_connection();
     /// fn users_by_name(name: &str) -> users::BoxedQuery<DB> {
     ///     users::table.filter(users::name.eq(name)).into_boxed()
@@ -1318,15 +1318,15 @@ pub trait QueryDsl: Sized {
     /// `NULL` if the table is empty or it otherwise returns 0 rows.
     ///
     /// # Example
-    ///
+    /// ```ignore
     /// ```rust
     /// # include!("../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #    run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::insert_into;
     /// #     use schema::users::dsl::*;
     /// #     use schema::posts;
@@ -1354,14 +1354,15 @@ pub trait QueryDsl: Sized {
     ///
     /// This is useful for writing queries that contain subselects on non null
     /// fields comparing them to nullable fields.
+    /// ```ignore
     /// ```rust
     /// # include!("../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #    run_test();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #    run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     let connection = &mut establish_connection();
     /// table! {
     ///     users {
@@ -1411,11 +1412,11 @@ pub trait RunQueryDsl<Conn>: Sized {
     /// ```rust
     /// # include!("../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::insert_into;
     /// #     use schema::users::dsl::*;
     /// #     let connection = &mut establish_connection();
@@ -1475,11 +1476,11 @@ pub trait RunQueryDsl<Conn>: Sized {
     /// ```rust
     /// # include!("../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::insert_into;
     /// #     use schema::users::dsl::*;
     /// #     let connection = &mut establish_connection();
@@ -1495,11 +1496,11 @@ pub trait RunQueryDsl<Conn>: Sized {
     /// ```rust
     /// # include!("../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::insert_into;
     /// #     use schema::users::dsl::*;
     /// #     let connection = &mut establish_connection();
@@ -1525,11 +1526,11 @@ pub trait RunQueryDsl<Conn>: Sized {
     ///     name: String,
     /// }
     ///
-    /// # fn main() {
-    /// #     run_test();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::insert_into;
     /// #     use schema::users::dsl::*;
     /// #     let connection = &mut establish_connection();
@@ -1590,11 +1591,11 @@ pub trait RunQueryDsl<Conn>: Sized {
     /// ```rust
     /// # include!("../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::insert_into;
     /// #     use schema::users::dsl::*;
     /// #     let connection = &mut establish_connection();
@@ -1613,11 +1614,11 @@ pub trait RunQueryDsl<Conn>: Sized {
     /// ```rust
     /// # include!("../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::insert_into;
     /// #     use schema::users::dsl::*;
     /// #     let connection = &mut establish_connection();
@@ -1646,11 +1647,11 @@ pub trait RunQueryDsl<Conn>: Sized {
     ///     name: String,
     /// }
     ///
-    /// # fn main() {
-    /// #     run_test();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::insert_into;
     /// #     use schema::users::dsl::*;
     /// #     let connection = &mut establish_connection();
@@ -1696,12 +1697,12 @@ pub trait RunQueryDsl<Conn>: Sized {
     /// ```rust
     /// # include!("../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
     /// # #[cfg(feature = "postgres")]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::{insert_into, update};
     /// #     use schema::users::dsl::*;
     /// #     let connection = &mut establish_connection();
@@ -1719,7 +1720,7 @@ pub trait RunQueryDsl<Conn>: Sized {
     /// # }
     /// #
     /// # #[cfg(not(feature = "postgres"))]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     Ok(())
     /// # }
     /// ```
@@ -1758,11 +1759,11 @@ pub trait RunQueryDsl<Conn>: Sized {
     ///
     /// ```rust
     /// # include!("../doctest_setup.rs");
-    /// # fn main() {
-    /// #     run_test();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use schema::users::dsl::*;
     /// #     let connection = &mut establish_connection();
     /// diesel::insert_into(users)

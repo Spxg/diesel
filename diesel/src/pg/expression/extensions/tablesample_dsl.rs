@@ -28,7 +28,7 @@ use crate::Table;
 /// # include!("../../../doctest_setup.rs");
 /// # use schema::{posts, users};
 /// # use diesel::dsl::*;
-/// # fn main() {
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
 /// # let connection = &mut establish_connection();
 /// let random_user_ids = users::table
 ///     .tablesample_bernoulli(10)
@@ -44,7 +44,7 @@ use crate::Table;
 /// # include!("../../../doctest_setup.rs");
 /// # use schema::{posts, users};
 /// # use diesel::dsl::*;
-/// # fn main() {
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
 /// # let connection = &mut establish_connection();
 /// # let _ =
 /// users::table

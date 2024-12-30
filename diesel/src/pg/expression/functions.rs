@@ -84,11 +84,11 @@ define_sql_function! {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// # use diesel::pg::sql_types::{Range, Multirange};
     /// # use diesel::dsl::lower;
     /// #     use std::collections::Bound;
@@ -122,11 +122,11 @@ define_sql_function! {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// # use diesel::pg::sql_types::{Range, Multirange};
     /// # use diesel::dsl::upper;
     /// #     use std::collections::Bound;
@@ -158,11 +158,11 @@ define_sql_function! {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// # use diesel::pg::sql_types::{Range, Multirange};
     /// # use diesel::dsl::isempty;
     /// #     use std::collections::Bound;
@@ -194,11 +194,11 @@ define_sql_function! {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// # use diesel::pg::sql_types::{Range, Multirange};
     /// # use diesel::dsl::lower_inc;
     /// #     use std::collections::Bound;
@@ -230,11 +230,11 @@ define_sql_function! {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// # use diesel::pg::sql_types::{Range, Multirange};
     /// # use diesel::dsl::upper_inc;
     /// #     use std::collections::Bound;
@@ -263,11 +263,11 @@ define_sql_function! {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// # use diesel::pg::sql_types::{Range, Multirange};
     /// # use diesel::dsl::lower_inf;
     /// #     use std::collections::Bound;
@@ -299,11 +299,11 @@ define_sql_function! {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// # use diesel::pg::sql_types::{Range, Multirange};
     /// # use diesel::dsl::upper_inf;
     /// #     use std::collections::Bound;
@@ -335,11 +335,11 @@ define_sql_function! {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// # use diesel::pg::sql_types::{Range, Multirange};
     /// # use diesel::dsl::range_merge;
     /// #     use std::collections::Bound;
@@ -371,11 +371,11 @@ define_sql_function! {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// # use diesel::pg::sql_types::{Range, Multirange};
     /// # use diesel::dsl::multirange_merge;
     /// #     use std::collections::Bound;
@@ -409,11 +409,11 @@ define_sql_function! {
     /// #     }
     /// # }
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use self::posts::dsl::*;
     /// #     use std::collections::Bound;
     /// #     let conn = &mut establish_connection();
@@ -457,11 +457,11 @@ define_sql_function! {
     /// #     }
     /// # }
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use self::posts::dsl::*;
     /// #     use std::collections::Bound;
     /// #     let conn = &mut establish_connection();
@@ -505,13 +505,13 @@ define_sql_function! {
     /// #     }
     /// # }
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     #[cfg(feature = "numeric")]
-    /// #     run_test().unwrap();
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
     /// # #[cfg(feature = "numeric")]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use self::posts::dsl::*;
     /// #     use std::collections::Bound;
     /// #     let conn = &mut establish_connection();
@@ -556,13 +556,13 @@ define_sql_function! {
     /// #     }
     /// # }
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     #[cfg(feature = "time")]
-    /// #     run_test().unwrap();
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
     /// # #[cfg(feature = "time")]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use self::posts::dsl::*;
     /// #     use std::collections::Bound;
     /// #     let conn = &mut establish_connection();
@@ -607,13 +607,13 @@ define_sql_function! {
     /// #     }
     /// # }
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     #[cfg(feature = "time")]
-    /// #     run_test().unwrap();
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
     /// # #[cfg(feature = "time")]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use self::posts::dsl::*;
     /// #     use std::collections::Bound;
     /// #     let conn = &mut establish_connection();
@@ -658,13 +658,13 @@ define_sql_function! {
     /// #     }
     /// # }
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     #[cfg(feature = "time")]
-    /// #     run_test().unwrap();
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
     /// # #[cfg(feature = "time")]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use self::posts::dsl::*;
     /// #     use std::collections::Bound;
     /// #     let conn = &mut establish_connection();
@@ -703,11 +703,11 @@ define_sql_function! {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::dsl::array_append;
     /// #     use diesel::sql_types::{Nullable, Integer, Array};
     /// #     let connection = &mut establish_connection();
@@ -741,11 +741,11 @@ define_sql_function! {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::dsl::array_replace;
     /// #     use diesel::sql_types::{Nullable, Integer, Array};
     /// #     let connection = &mut establish_connection();
@@ -778,10 +778,10 @@ define_sql_function! {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main(){
-    /// #    run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main(){
+    /// #    run_test().await.unwrap();
     /// # }
-    /// # fn run_test()->QueryResult<()>{
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test()->QueryResult<()>{
     /// #   use diesel::dsl::array_dims;
     /// #   use diesel::sql_types::{Nullable,Array,Integer};
     /// #   let connection = &mut establish_connection();
@@ -812,11 +812,11 @@ define_sql_function! {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::dsl::array_prepend;
     /// #     use diesel::sql_types::{Nullable, Integer, Array};
     /// #     let connection = &mut establish_connection();
@@ -850,11 +850,11 @@ define_sql_function! {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::dsl::array_remove;
     /// #     use diesel::sql_types::{Nullable, Integer, Array};
     /// #     let connection = &mut establish_connection();
@@ -886,11 +886,11 @@ define_sql_function! {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::dsl::array_to_string_with_null_string;
     /// #     use diesel::sql_types::{Nullable, Text, Array};
     /// #     let connection = &mut establish_connection();
@@ -933,11 +933,11 @@ define_sql_function! {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::dsl::array_to_string;
     /// #     use diesel::sql_types::{Text, Array, Nullable};
     /// #     let connection = &mut establish_connection();
@@ -977,10 +977,10 @@ define_sql_function! {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main(){
-    /// #    run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main(){
+    /// #    run_test().await.unwrap();
     /// # }
-    /// # fn run_test()->QueryResult<()>{
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test()->QueryResult<()>{
     /// #   use diesel::dsl::cardinality;
     /// #   use diesel::sql_types::{Nullable,Array,Integer};
     /// #   let connection = &mut establish_connection();
@@ -1015,10 +1015,10 @@ define_sql_function! {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main(){
-    /// #    run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main(){
+    /// #    run_test().await.unwrap();
     /// # }
-    /// # fn run_test()->QueryResult<()>{
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test()->QueryResult<()>{
     /// #   use diesel::dsl::trim_array;
     /// #   use diesel::sql_types::{Nullable,Array,Integer};
     /// #   let connection = &mut establish_connection();
@@ -1057,11 +1057,11 @@ define_sql_function! {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::dsl::array_cat;
     /// #     use diesel::sql_types::{Integer, Array, Nullable};
     /// #     let connection = &mut establish_connection();
@@ -1089,11 +1089,11 @@ define_sql_function! {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::dsl::array_length;
     /// #     use diesel::sql_types::{Integer, Array, Nullable};
     /// #     let connection = &mut establish_connection();
@@ -1125,10 +1125,10 @@ define_sql_function! {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main(){
-    /// #    run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main(){
+    /// #    run_test().await.unwrap();
     /// # }
-    /// # fn run_test()->QueryResult<()>{
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test()->QueryResult<()>{
     /// #   use diesel::dsl::array_fill;
     /// #   use diesel::sql_types::{Nullable,Array,Integer,Text};
     /// #   let connection = &mut establish_connection();
@@ -1164,10 +1164,10 @@ define_sql_function! {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main(){
-    /// #    run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main(){
+    /// #    run_test().await.unwrap();
     /// # }
-    /// # fn run_test()->QueryResult<()>{
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test()->QueryResult<()>{
     /// #   use diesel::dsl::array_fill_with_lower_bound;
     /// #   use diesel::sql_types::{Nullable,Array,Integer,Text};
     /// #   let connection = &mut establish_connection();
@@ -1205,11 +1205,11 @@ define_sql_function! {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::dsl::array_lower;
     /// #     use diesel::sql_types::{Integer, Array};
     /// #     let connection = &mut establish_connection();
@@ -1241,10 +1241,10 @@ define_sql_function! {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main(){
-    /// #    run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main(){
+    /// #    run_test().await.unwrap();
     /// # }
-    /// # fn run_test()->QueryResult<()>{
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test()->QueryResult<()>{
     /// #   use diesel::dsl::array_position;
     /// #   use diesel::sql_types::{Nullable,Array,Integer};
     /// #   let connection = &mut establish_connection();
@@ -1293,10 +1293,10 @@ define_sql_function! {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main(){
-    /// #    run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main(){
+    /// #    run_test().await.unwrap();
     /// # }
-    /// # fn run_test()->QueryResult<()>{
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test()->QueryResult<()>{
     /// #   use diesel::dsl::array_position_with_subscript;
     /// #   use diesel::sql_types::{Nullable,Array,Integer};
     /// #   let connection = &mut establish_connection();
@@ -1348,10 +1348,10 @@ define_sql_function! {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main(){
-    /// #    run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main(){
+    /// #    run_test().await.unwrap();
     /// # }
-    /// # fn run_test()->QueryResult<()>{
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test()->QueryResult<()>{
     /// #   use diesel::dsl::array_positions;
     /// #   use diesel::sql_types::{Nullable,Array,Integer};
     /// #   let connection = &mut establish_connection();
@@ -1391,11 +1391,11 @@ define_sql_function! {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::dsl::array_ndims;
     /// #     use diesel::sql_types::{Nullable, Array, Integer};
     /// #     let connection = &mut establish_connection();
@@ -1426,11 +1426,11 @@ define_sql_function! {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::dsl::array_upper;
     /// #     use diesel::sql_types::{Integer, Array};
     /// #     let connection = &mut establish_connection();
@@ -1460,11 +1460,11 @@ define_sql_function! {
     /// ```rust,no_run
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::dsl::array_shuffle;
     /// #     use diesel::sql_types::{Array, Integer};
     /// #     let connection = &mut establish_connection();
@@ -1491,11 +1491,11 @@ define_sql_function! {
     /// ```rust,no_run
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::dsl::array_sample;
     /// #     use diesel::sql_types::{Array, Integer, Nullable};
     /// #     let connection = &mut establish_connection();
@@ -1529,13 +1529,13 @@ define_sql_function! {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     #[cfg(feature = "serde_json")]
-    /// #     run_test().unwrap();
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
     /// # #[cfg(feature = "serde_json")]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::dsl::array_to_json;
     /// #     use diesel::sql_types::{Array, Integer, Text, Nullable};
     /// #     use serde_json::Value;
@@ -1572,13 +1572,13 @@ define_sql_function! {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     #[cfg(feature = "serde_json")]
-    /// #     run_test().unwrap();
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
     /// # #[cfg(feature = "serde_json")]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::dsl::to_json;
     /// #     use serde_json::{json, Value};
     /// #     use diesel::sql_types::{Integer, Array, Json, Text, Nullable};
@@ -1618,13 +1618,13 @@ define_sql_function! {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     #[cfg(feature = "serde_json")]
-    /// #     run_test().unwrap();
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
     /// # #[cfg(feature = "serde_json")]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::dsl::to_jsonb;
     /// #     use serde_json::{json, Value};
     /// #     use diesel::sql_types::{Integer, Array, Jsonb, Text, Nullable};
@@ -1665,13 +1665,13 @@ define_sql_function! {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     #[cfg(feature = "serde_json")]
-    /// #     run_test().unwrap();
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
     /// # #[cfg(feature = "serde_json")]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::dsl::json_object;
     /// #     use diesel::sql_types::{Array, Json, Nullable, Text};
     /// #     use serde_json::Value;
@@ -1713,13 +1713,13 @@ define_sql_function! {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     #[cfg(feature = "serde_json")]
-    /// #     run_test().unwrap();
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
     /// # #[cfg(feature = "serde_json")]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::dsl::json_object_with_keys_and_values;
     /// #     use diesel::sql_types::{Array, Json, Nullable, Text};
     /// #     use serde_json::Value;
@@ -1763,13 +1763,13 @@ define_sql_function! {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     #[cfg(feature = "serde_json")]
-    /// #     run_test().unwrap();
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
     /// # #[cfg(feature = "serde_json")]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::dsl::json_typeof;
     /// #     use serde_json::{json, Value};
     /// #     use diesel::sql_types::{Json, Nullable};
@@ -1823,13 +1823,13 @@ define_sql_function! {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     #[cfg(feature = "serde_json")]
-    /// #     run_test().unwrap();
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
     /// # #[cfg(feature = "serde_json")]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::dsl::jsonb_typeof;
     /// #     use serde_json::{json, Value};
     /// #     use diesel::sql_types::{Jsonb, Nullable};
@@ -1883,13 +1883,13 @@ define_sql_function! {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     #[cfg(feature = "serde_json")]
-    /// #     run_test().unwrap();
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
     /// # #[cfg(feature = "serde_json")]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::dsl::jsonb_pretty;
     /// #     use serde_json::{json, Value};
     /// #     use diesel::sql_types::{Jsonb, Nullable};
@@ -1959,13 +1959,13 @@ define_sql_function! {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     #[cfg(feature = "serde_json")]
-    /// #     run_test().unwrap();
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
     /// # #[cfg(feature = "serde_json")]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::dsl::json_strip_nulls;
     /// #     use diesel::sql_types::{Json, Nullable};
     /// #     use serde_json::{json, Value};
@@ -2005,13 +2005,13 @@ define_sql_function! {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     #[cfg(feature = "serde_json")]
-    /// #     run_test().unwrap();
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
     /// # #[cfg(feature = "serde_json")]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::dsl::jsonb_strip_nulls;
     /// #     use diesel::sql_types::{Jsonb, Nullable};
     /// #     use serde_json::{json, Value};
@@ -2054,13 +2054,13 @@ define_sql_function! {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     #[cfg(feature = "serde_json")]
-    /// #     run_test().unwrap();
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
     /// # #[cfg(feature = "serde_json")]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::dsl::json_array_length;
     /// #     use serde_json::{json, Value};
     /// #     use diesel::sql_types::{Integer, Json, Nullable};
@@ -2097,13 +2097,13 @@ define_sql_function! {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     #[cfg(feature = "serde_json")]
-    /// #     run_test().unwrap();
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
     /// # #[cfg(feature = "serde_json")]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::dsl::jsonb_array_length;
     /// #     use serde_json::{json, Value};
     /// #     use diesel::sql_types::{Integer, Jsonb, Nullable};
@@ -2142,13 +2142,13 @@ define_sql_function! {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     #[cfg(feature = "serde_json")]
-    /// #     run_test().unwrap();
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
     /// # #[cfg(feature = "serde_json")]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::dsl::jsonb_object;
     /// #     use diesel::sql_types::{Array, Json, Nullable, Text};
     /// #     use serde_json::Value;
@@ -2196,13 +2196,13 @@ define_sql_function! {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     #[cfg(feature = "serde_json")]
-    /// #     run_test().unwrap();
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
     /// # #[cfg(feature = "serde_json")]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::dsl::jsonb_object_with_keys_and_values;
     /// #     use diesel::sql_types::{Array, Nullable, Text};
     /// #     use serde_json::Value;
@@ -2246,13 +2246,13 @@ define_sql_function! {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     #[cfg(feature = "serde_json")]
-    /// #     run_test().unwrap();
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
     /// # #[cfg(feature = "serde_json")]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::dsl::row_to_json;
     /// #     use diesel::dsl::sql;
     /// #     use diesel::sql_types::{Record, Text, Integer};
@@ -2291,13 +2291,13 @@ define_sql_function! {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     #[cfg(feature = "serde_json")]
-    /// #     run_test().unwrap();
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
     /// # #[cfg(feature = "serde_json")]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::dsl::json_populate_record;
     /// #     use diesel::dsl::sql;
     /// #     use diesel::sql_types::{Record, Text, Integer, Json};
@@ -2350,13 +2350,13 @@ define_sql_function! {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     #[cfg(feature = "serde_json")]
-    /// #     run_test().unwrap();
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
     /// # #[cfg(feature = "serde_json")]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::dsl::jsonb_populate_record;
     /// #     use diesel::dsl::sql;
     /// #     use diesel::sql_types::{Record, Text, Integer, Jsonb};
@@ -2417,13 +2417,13 @@ define_sql_function! {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     #[cfg(feature = "serde_json")]
-    /// #     run_test().unwrap();
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
     /// # #[cfg(feature = "serde_json")]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::dsl::jsonb_set;
     /// #     use diesel::sql_types::{Jsonb,Array, Json, Nullable, Text};
     /// #     use serde_json::{json,Value};
@@ -2500,13 +2500,13 @@ define_sql_function! {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     #[cfg(feature = "serde_json")]
-    /// #     run_test().unwrap();
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
     /// # #[cfg(feature = "serde_json")]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::dsl::jsonb_set_create_if_missing;
     /// #     use diesel::sql_types::{Jsonb, Array, Json, Nullable, Text};
     /// #     use serde_json::{json, Value};
@@ -2602,13 +2602,13 @@ define_sql_function! {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     #[cfg(feature = "serde_json")]
-    /// #     run_test().unwrap();
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
     /// # #[cfg(feature = "serde_json")]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use diesel::dsl::jsonb_set_lax;
     /// #     use diesel::sql_types::{Jsonb,Array,NullValueTreatment, Json, Nullable, Text};
     /// #     use serde_json::{json,Value};

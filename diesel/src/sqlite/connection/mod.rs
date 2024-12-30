@@ -61,11 +61,11 @@ use crate::sqlite::Sqlite;
 /// ```rust
 /// # include!("../../doctest_setup.rs");
 /// #
-/// # fn main() {
-/// #     run_test().unwrap();
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+/// #     run_test().await.unwrap();
 /// # }
 /// #
-/// # fn run_test() -> QueryResult<()> {
+/// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
 /// #     use schema::users;
 /// #     let connection = &mut establish_connection();
 /// use diesel::connection::DefaultLoadingMode;
@@ -95,11 +95,11 @@ use crate::sqlite::Sqlite;
 /// ```compile_fail
 /// # include!("../../doctest_setup.rs");
 /// #
-/// # fn main() {
-/// #     run_test().unwrap();
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+/// #     run_test().await.unwrap();
 /// # }
 /// #
-/// # fn run_test() -> QueryResult<()> {
+/// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
 /// #     use schema::users;
 /// #     let connection = &mut establish_connection();
 /// use diesel::connection::DefaultLoadingMode;
@@ -277,11 +277,11 @@ impl SqliteConnection {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     let mut conn = SqliteConnection::establish(":memory:").unwrap();
     /// conn.immediate_transaction(|conn| {
     ///     // Do stuff in a transaction
@@ -306,11 +306,11 @@ impl SqliteConnection {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     let mut conn = SqliteConnection::establish(":memory:").unwrap();
     /// conn.exclusive_transaction(|conn| {
     ///     // Do stuff in a transaction
@@ -451,11 +451,11 @@ impl SqliteConnection {
     /// ```rust
     /// # include!("../../doctest_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     let mut conn = SqliteConnection::establish(":memory:").unwrap();
     /// // sqlite NOCASE only works for ASCII characters,
     /// // this collation allows handling UTF-8 (barring locale differences)
@@ -501,7 +501,7 @@ impl SqliteConnection {
     /// # use diesel::sql_query;
     /// # use diesel::Connection;
     /// # use diesel::RunQueryDsl;
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// let connection = &mut SqliteConnection::establish(":memory:").unwrap();
     ///
     /// sql_query("CREATE TABLE users (id INTEGER PRIMARY KEY, name TEXT, email TEXT)")

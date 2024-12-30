@@ -49,7 +49,7 @@ impl RawConnection {
             CString::new(database_url)?
         };
         let flags = ffi::SQLITE_OPEN_READWRITE | ffi::SQLITE_OPEN_CREATE | ffi::SQLITE_OPEN_URI;
-        
+
         #[cfg(all(target_family = "wasm", not(target_os = "wasi")))]
         let vfs = CString::new("opfs")?;
 

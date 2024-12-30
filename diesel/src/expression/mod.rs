@@ -251,7 +251,7 @@ where
 /// # include!("../doctest_setup.rs");
 /// # use schema::users;
 /// #
-/// # fn main() {
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
 /// use diesel::sql_types::Text;
 /// #   let conn = &mut establish_connection();
 /// let names = users::table
@@ -372,11 +372,11 @@ where
 ///     name: String,
 /// }
 ///
-/// # fn main() {
-/// #     run_test();
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+/// #     run_test().await.unwrap();
 /// # }
 /// #
-/// # fn run_test() -> QueryResult<()> {
+/// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
 /// #     use schema::users::dsl::*;
 /// #     let connection = &mut establish_connection();
 /// let first_user = users.select(User::as_select()).first(connection)?;
@@ -412,11 +412,11 @@ where
 ///     }
 /// }
 ///
-/// # fn main() {
-/// #     run_test();
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+/// #     run_test().await.unwrap();
 /// # }
 /// #
-/// # fn run_test() -> QueryResult<()> {
+/// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
 /// #     use schema::users::dsl::*;
 /// #     let connection = &mut establish_connection();
 /// let first_user = users.select(User::as_select()).first(connection)?;
@@ -447,7 +447,7 @@ where
 ///     title: String,
 /// }
 ///
-/// # fn main() -> QueryResult<()> {
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() -> QueryResult<()> {
 /// #     let connection = &mut establish_connection();
 /// #
 /// let (first_user, first_post) = users::table
@@ -484,7 +484,7 @@ where
 ///     title: String,
 /// }
 ///
-/// # fn main() -> QueryResult<()> {
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() -> QueryResult<()> {
 /// #     let connection = &mut establish_connection();
 /// #
 /// let (first_user, first_post_title) = users::table
@@ -531,7 +531,7 @@ where
 ///     post_title: PostTitle,
 /// }
 ///
-/// # fn main() -> QueryResult<()> {
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() -> QueryResult<()> {
 /// #     let connection = &mut establish_connection();
 /// #
 /// let first_user_post = users::table
@@ -615,7 +615,7 @@ where
 ///     posts::columns::title
 /// }
 ///
-/// # fn main() -> QueryResult<()> {
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() -> QueryResult<()> {
 /// #     let connection = &mut establish_connection();
 /// #
 /// let first_user_post = users::table
@@ -861,11 +861,11 @@ use crate::query_builder::{QueryFragment, QueryId};
 /// # use schema::users;
 /// use diesel::sql_types::Bool;
 ///
-/// # fn main() {
-/// #     run_test().unwrap();
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+/// #     run_test().await.unwrap();
 /// # }
 /// #
-/// # fn run_test() -> QueryResult<()> {
+/// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
 /// #     let conn = &mut establish_connection();
 /// enum Search {
 ///     Id(i32),
@@ -906,11 +906,11 @@ use crate::query_builder::{QueryFragment, QueryId};
 /// use diesel::dsl;
 /// use diesel::expression::ValidGrouping;
 ///
-/// # fn main() {
-/// #     run_test().unwrap();
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+/// #     run_test().await.unwrap();
 /// # }
 /// #
-/// # fn run_test() -> QueryResult<()> {
+/// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
 /// #     let conn = &mut establish_connection();
 /// enum NameOrConst {
 ///     Name,
@@ -973,11 +973,11 @@ use crate::query_builder::{QueryFragment, QueryId};
 /// use diesel::sql_types::Bool;
 /// use diesel::dsl::InnerJoinQuerySource;
 ///
-/// # fn main() {
-/// #     run_test().unwrap();
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+/// #     run_test().await.unwrap();
 /// # }
 /// #
-/// # fn run_test() -> QueryResult<()> {
+/// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
 /// #     let conn = &mut establish_connection();
 /// enum UserPostFilter {
 ///     User(i32),

@@ -394,7 +394,7 @@ impl<T: Query> AsQuery for T {
 /// # use diesel::*;
 /// # use schema::*;
 /// #
-/// # fn main() {
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
 /// #   use schema::users::dsl::*;
 /// let sql = debug_query::<DB, _>(&users.count()).to_string();
 /// # if cfg!(feature = "postgres") {

@@ -43,7 +43,7 @@ define_sql_function! {
     /// let today = diesel::select(date(now)).first(connection)?;
     /// #     Ok(today)
     /// # }
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #
     /// # }
     /// ```

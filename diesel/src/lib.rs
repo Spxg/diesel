@@ -569,7 +569,7 @@ pub mod helper_types {
     /// # use diesel::{backend::Backend, serialize::ToSql, sql_types};
     /// use schema::*;
     ///
-    /// # fn main() -> QueryResult<()> {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() -> QueryResult<()> {
     /// #     let conn = &mut establish_connection();
     /// #
     /// // If you have an explicit join like this...
@@ -616,7 +616,7 @@ pub mod helper_types {
     /// # use diesel::{backend::Backend, serialize::ToSql, sql_types};
     /// use schema::*;
     ///
-    /// # fn main() -> QueryResult<()> {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() -> QueryResult<()> {
     /// #     let conn = &mut establish_connection();
     /// #
     /// // If you have an explicit join like this...

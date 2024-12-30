@@ -70,7 +70,7 @@ macro_rules! no_arg_sql_function_body {
 /// ```no_run
 /// # pub use diesel::*;
 /// no_arg_sql_function!(now, sql_types::Timestamp, "Represents the SQL NOW() function");
-/// # fn main() {}
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {}
 /// ```
 ///
 /// You can optionally pass the name of a trait, as a constraint for backends which support the

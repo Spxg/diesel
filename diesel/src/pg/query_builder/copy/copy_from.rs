@@ -600,7 +600,7 @@ pub struct NotSet;
 ///     name: &'static str,
 /// }
 ///
-/// # fn run_test() -> QueryResult<()> {
+/// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
 /// # let connection = &mut establish_connection();
 ///
 /// let data = vec![
@@ -615,8 +615,8 @@ pub struct NotSet;
 /// assert_eq!(count, 2);
 /// # Ok(())
 /// # }
-/// # fn main() {
-/// #    run_test().unwrap();
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+/// #    run_test().await.unwrap();
 /// # }
 /// ```
 ///
@@ -624,7 +624,7 @@ pub struct NotSet;
 ///
 /// ```rust
 /// # include!("../../../doctest_setup.rs");
-/// # fn run_test() -> QueryResult<()> {
+/// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
 /// # use crate::schema::users;
 /// use diesel::pg::CopyFormat;
 /// # let connection = &mut establish_connection();
@@ -640,8 +640,8 @@ pub struct NotSet;
 /// assert_eq!(count, 2);
 /// # Ok(())
 /// # }
-/// # fn main() {
-/// #    run_test().unwrap();
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+/// #    run_test().await.unwrap();
 /// # }
 /// ```
 #[cfg(feature = "postgres_backend")]

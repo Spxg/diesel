@@ -26,10 +26,10 @@ where
     /// ```rust
     /// # include!("on_conflict_docs_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap()
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap()
     /// # }
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use self::users::dsl::*;
     /// #     let conn = &mut establish_connection();
     /// #     #[cfg(feature = "postgres")]
@@ -63,11 +63,11 @@ where
     /// ```rust
     /// # include!("on_conflict_docs_setup.rs");
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap()
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap()
     /// # }
     /// #
-    /// # fn run_test() -> diesel::QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> diesel::QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use self::users::dsl::*;
     /// #     let conn = &mut establish_connection();
     /// #     #[cfg(feature = "postgres")]
@@ -129,14 +129,13 @@ where
     /// #     name: &'a str,
     /// # }
     /// #
-    /// # fn main() {
-    /// #    run_test().unwrap()
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #    run_test().await.unwrap()
     /// # }
     /// # #[cfg(any(feature = "postgres", feature = "sqlite"))]
-    /// # fn run_test() -> diesel::QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> diesel::QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use self::users::dsl::*;
     /// use diesel::upsert::*;
-    ///
     /// #     let conn = &mut establish_connection();
     /// #     #[cfg(any(feature = "sqlite", feature = "postgres"))]
     /// #     diesel::sql_query("DROP TABLE users").execute(conn).unwrap();
@@ -166,7 +165,7 @@ where
     /// # Ok(())
     /// # }
     /// #[cfg(feature = "mysql")]
-    /// fn run_test() -> diesel::QueryResult<()> { Ok(()) }
+    /// #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> diesel::QueryResult<()> { Ok(()) }
     /// ```
     ///
     /// ### Specifying multiple columns as the target
@@ -193,7 +192,7 @@ where
     /// # }
     /// #
     /// # #[cfg(any(feature = "sqlite", feature = "postgres"))]
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     use self::users::dsl::*;
     /// use diesel::upsert::*;
     ///
@@ -223,7 +222,7 @@ where
     /// # }
     ///
     /// #[cfg(feature = "mysql")]
-    /// fn main() {}
+    /// #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {}
     /// ```
     ///
     /// ### ON DUPLICATE KEY
@@ -248,11 +247,11 @@ where
     /// #     name: &'a str,
     /// # }
     /// #
-    /// # fn main() {
-    /// #    run_test().unwrap()
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #    run_test().await.unwrap()
     /// # }
     /// # #[cfg(feature = "mysql")]
-    /// # fn run_test() -> diesel::QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> diesel::QueryResult<()> {
     /// #     use self::users::dsl::*;
     /// use diesel::upsert::*;
     ///
@@ -290,7 +289,7 @@ where
     /// # Ok(())
     /// # }
     /// #[cfg(not(feature = "mysql"))]
-    /// fn run_test() -> diesel::QueryResult<()> {Ok(())}
+    /// #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> diesel::QueryResult<()> {Ok(())}
     /// ```
     ///
     /// See the documentation for [`on_constraint`] and [`do_update`] for
@@ -378,7 +377,7 @@ impl<Stmt, Target> IncompleteOnConflict<Stmt, Target> {
     /// # include!("on_conflict_docs_setup.rs");
     /// #
     /// # #[cfg(not(feature = "mysql"))]
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     use self::users::dsl::*;
     /// #     let conn = &mut establish_connection();
     /// #     #[cfg(feature = "postgres")]
@@ -405,7 +404,7 @@ impl<Stmt, Target> IncompleteOnConflict<Stmt, Target> {
     /// assert_eq!(Ok(vec![(1, "I DONT KNOW ANYMORE".to_string())]), users_in_db);
     /// # }
     /// # #[cfg(feature = "mysql")]
-    /// # fn main() {}
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {}
     /// ```
     ///
     /// MySQL:
@@ -414,7 +413,7 @@ impl<Stmt, Target> IncompleteOnConflict<Stmt, Target> {
     /// # include!("on_conflict_docs_setup.rs");
     /// #
     /// # #[cfg(feature = "mysql")]
-    /// # fn main() -> diesel::QueryResult<()> {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() -> diesel::QueryResult<()> {
     /// #     use self::users::dsl::*;
     /// #     let conn = &mut establish_connection();
     /// #     diesel::sql_query("DELETE FROM users").execute(conn).unwrap();
@@ -435,7 +434,7 @@ impl<Stmt, Target> IncompleteOnConflict<Stmt, Target> {
     /// # Ok(())
     /// # }
     /// # #[cfg(not(feature = "mysql"))]
-    /// # fn main() {}
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {}
     /// ```
     ///
     /// ## Set `AsChangeset` struct on conflict
@@ -446,7 +445,7 @@ impl<Stmt, Target> IncompleteOnConflict<Stmt, Target> {
     /// # include!("on_conflict_docs_setup.rs");
     /// #
     /// # #[cfg(not(feature = "mysql"))]
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     use self::users::dsl::*;
     /// #     let conn = &mut establish_connection();
     /// #     #[cfg(feature = "postgres")]
@@ -470,7 +469,7 @@ impl<Stmt, Target> IncompleteOnConflict<Stmt, Target> {
     /// assert_eq!(Ok(vec![(1, "Sean".to_string())]), users_in_db);
     /// # }
     /// # #[cfg(feature = "mysql")]
-    /// # fn main() {}
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {}
     /// ```
     ///
     /// MySQL:
@@ -479,7 +478,7 @@ impl<Stmt, Target> IncompleteOnConflict<Stmt, Target> {
     /// # include!("on_conflict_docs_setup.rs");
     ///
     /// # #[cfg(feature = "mysql")]
-    /// # fn main() -> diesel::QueryResult<()> {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() -> diesel::QueryResult<()> {
     /// #     use self::users::dsl::*;
     /// #     let conn = &mut establish_connection();
     /// #     diesel::sql_query("DELETE FROM users").execute(conn).unwrap();
@@ -501,7 +500,7 @@ impl<Stmt, Target> IncompleteOnConflict<Stmt, Target> {
     /// # }
     ///
     /// # #[cfg(not(feature = "mysql"))]
-    /// # fn main() {}
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {}
     /// ```
     ///
     /// ## Use `excluded` to get the rejected value
@@ -510,7 +509,7 @@ impl<Stmt, Target> IncompleteOnConflict<Stmt, Target> {
     /// # include!("on_conflict_docs_setup.rs");
     /// #
     /// # #[cfg(any(feature = "sqlite", feature = "postgres"))]
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     use self::users::dsl::*;
     /// use diesel::upsert::excluded;
     ///
@@ -540,7 +539,7 @@ impl<Stmt, Target> IncompleteOnConflict<Stmt, Target> {
     /// assert_eq!(Ok(vec![(1, "Sean".to_string()), (2, "Tess".to_string())]), users_in_db);
     /// # }
     /// # #[cfg(feature = "mysql")]
-    /// # fn main() {}
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {}
     /// ```
     ///
     /// ## Use `.filter()`method to limit the rows actually updated
@@ -549,7 +548,7 @@ impl<Stmt, Target> IncompleteOnConflict<Stmt, Target> {
     /// # include!("on_conflict_docs_setup.rs");
     /// #
     /// # #[cfg(feature = "postgres")]
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     use diesel::QueryDsl;
     /// #     use diesel::query_dsl::methods::FilterDsl;
     /// use self::users::dsl::*;
@@ -574,7 +573,7 @@ impl<Stmt, Target> IncompleteOnConflict<Stmt, Target> {
     /// assert_eq!(Ok(vec![(1, "Pascal".to_string())]), users_in_db);
     /// # }
     /// # #[cfg(any(feature = "sqlite", feature = "mysql"))]
-    /// # fn main() {}
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {}
     /// ```
     pub fn do_update(self) -> IncompleteDoUpdate<Stmt, Target> {
         IncompleteDoUpdate {

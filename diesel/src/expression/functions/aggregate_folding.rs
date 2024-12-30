@@ -11,7 +11,7 @@ define_sql_function! {
     /// # include!("../../doctest_setup.rs");
     /// # use diesel::dsl::*;
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     use schema::animals::dsl::*;
     /// #     let connection = &mut establish_connection();
     /// assert_eq!(Ok(Some(12i64)), animals.select(sum(legs)).first(connection));
@@ -33,8 +33,8 @@ define_sql_function! {
     /// # #[cfg(feature = "numeric")]
     /// # extern crate bigdecimal;
     /// #
-    /// # fn main() {
-    /// #     run_test().unwrap();
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+    /// #     run_test().await.unwrap();
     /// # }
     /// #
     /// # table! {
@@ -44,7 +44,7 @@ define_sql_function! {
     /// # }
     /// #
     /// # #[cfg(all(feature = "numeric", any(feature = "postgres", not(feature = "sqlite"))))]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     use bigdecimal::BigDecimal;
     /// #     use self::numbers::dsl::*;
     /// #     let conn = &mut establish_connection();
@@ -59,7 +59,7 @@ define_sql_function! {
     /// # }
     /// #
     /// # #[cfg(not(all(feature = "numeric", any(feature = "postgres", not(feature = "sqlite")))))]
-    /// # fn run_test() -> QueryResult<()> {
+    /// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
     /// #     Ok(())
     /// # }
     #[aggregate]

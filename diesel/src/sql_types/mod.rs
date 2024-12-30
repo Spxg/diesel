@@ -481,7 +481,7 @@ pub struct Json;
 /// #       all(feature = "sqlite", feature = "returning_clauses_for_sqlite_3_35"),
 /// #   )
 /// # ))]
-/// # fn main() -> Result<(), Box<dyn std::error::Error>> {
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() -> Result<(), Box<dyn std::error::Error>> {
 /// #     use diesel::insert_into;
 /// #     use self::contacts::dsl::*;
 /// #     let connection = &mut connection_no_data();
@@ -517,7 +517,7 @@ pub struct Json;
 /// #       all(feature = "sqlite", feature = "returning_clauses_for_sqlite_3_35"),
 /// #   )
 /// # )))]
-/// # fn main() {}
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {}
 /// ```
 #[derive(Debug, Clone, Copy, Default, QueryId, SqlType)]
 #[diesel(postgres_type(oid = 3802, array_oid = 3807))]

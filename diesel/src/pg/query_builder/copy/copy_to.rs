@@ -537,7 +537,7 @@ where
 ///     name: String,
 /// }
 ///
-/// # fn run_test() -> QueryResult<()> {
+/// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
 /// # let connection = &mut establish_connection();
 /// let out = diesel::copy_to(users::table)
 ///     .load::<User, _>(connection)?
@@ -546,8 +546,8 @@ where
 /// assert_eq!(out, vec![User{ name: "Sean".into() }, User{ name: "Tess".into() }]);
 /// # Ok(())
 /// # }
-/// # fn main() {
-/// #    run_test().unwrap();
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+/// #    run_test().await.unwrap();
 /// # }
 /// ```
 ///
@@ -555,7 +555,7 @@ where
 ///
 /// ```rust
 /// # include!("../../../doctest_setup.rs");
-/// # fn run_test() -> QueryResult<()> {
+/// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
 /// # use crate::schema::users;
 /// use diesel::pg::CopyFormat;
 /// use std::io::Read;
@@ -570,8 +570,8 @@ where
 /// assert_eq!(out, "1,Sean\n2,Tess\n");
 /// # Ok(())
 /// # }
-/// # fn main() {
-/// #    run_test().unwrap();
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+/// #    run_test().await.unwrap();
 /// # }
 /// ```
 #[cfg(feature = "postgres_backend")]

@@ -19,7 +19,7 @@ use crate::sql_types::Bool;
 /// ```rust
 /// # include!("../doctest_setup.rs");
 /// #
-/// # fn main() {
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
 /// #     use schema::users::dsl::*;
 /// #     use diesel::select;
 /// #     use diesel::dsl::exists;

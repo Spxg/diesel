@@ -21,7 +21,7 @@ use crate::data_types::PgInterval;
 /// #     }
 /// # }
 /// #
-/// # fn main() {
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
 /// #     use self::users::dsl::*;
 /// #     let connection = &mut connection_no_data();
 /// #     diesel::sql_query("CREATE TABLE users (id serial primary key, name
@@ -56,7 +56,7 @@ use crate::data_types::PgInterval;
 /// #     }
 /// # }
 /// #
-/// # fn main() {
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
 /// #     use self::users::dsl::*;
 /// #     let connection = &mut connection_no_data();
 /// #     diesel::sql_query("CREATE TABLE users (id serial primary key, name

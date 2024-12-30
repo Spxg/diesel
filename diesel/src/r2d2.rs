@@ -52,7 +52,7 @@
 //!         .execute(conn)
 //! }
 //!
-//! fn main() {
+//! #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
 //!     let pool = get_connection_pool();
 //!     let mut threads = vec![];
 //!     let max_users_to_create = 1;
@@ -112,7 +112,7 @@
 //! use diesel::result::Error;
 //! use std::thread;
 //!
-//! # fn main() {}
+//! # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {}
 //!
 //! pub fn get_testing_pool() -> Pool<ConnectionManager<DbConnection>> {
 //!     let url = database_url_for_env();

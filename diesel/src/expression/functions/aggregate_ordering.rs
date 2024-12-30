@@ -11,7 +11,7 @@ define_sql_function! {
     /// # include!("../../doctest_setup.rs");
     /// # use diesel::dsl::*;
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     use schema::animals::dsl::*;
     /// #     let connection = &mut establish_connection();
     /// assert_eq!(Ok(Some(8)), animals.select(max(legs)).first(connection));
@@ -30,7 +30,7 @@ define_sql_function! {
     /// # include!("../../doctest_setup.rs");
     /// # use diesel::dsl::*;
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     use schema::animals::dsl::*;
     /// #     let connection = &mut establish_connection();
     /// assert_eq!(Ok(Some(4)), animals.select(min(legs)).first(connection));

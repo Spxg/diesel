@@ -36,7 +36,7 @@ use crate::serialize::{self, Output};
 ///         }
 ///     }
 /// # }
-/// # fn main() {}
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {}
 /// ```
 #[cfg(feature = "postgres_backend")]
 pub trait WriteTuple<ST> {

@@ -20,7 +20,7 @@ pub trait CombineDsl {
     /// # use schema::{users, animals};
     /// # use crate::diesel::query_dsl::positional_order_dsl::PositionalOrderDsl;
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     use self::users::dsl::{users, name as user_name};
     /// #     use self::animals::dsl::{animals, name as animal_name};
     /// #     let connection = &mut establish_connection();

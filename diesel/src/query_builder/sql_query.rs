@@ -53,7 +53,7 @@ impl<Inner> SqlQuery<Inner> {
     /// #     name: String,
     /// # }
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     use diesel::sql_query;
     /// #     use diesel::sql_types::{Integer, Text};
     /// #
@@ -191,7 +191,7 @@ impl<Query, Value, ST> UncheckedBind<Query, Value, ST> {
     /// #     name: String,
     /// # }
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     use diesel::sql_query;
     /// #     use diesel::sql_types::{Integer, Text};
     /// #

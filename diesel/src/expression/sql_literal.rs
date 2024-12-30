@@ -49,7 +49,7 @@ where
     /// #    }
     /// # }
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     use self::users::dsl::*;
     /// #     use diesel::dsl::sql;
     /// #     use diesel::sql_types::{Integer, Text, Bool};
@@ -79,7 +79,7 @@ where
     /// #    }
     /// # }
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     use self::users::dsl::*;
     /// #     use diesel::dsl::sql;
     /// #     use diesel::sql_types::{Integer, Text, Bool};
@@ -131,7 +131,7 @@ where
     /// #    }
     /// # }
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     use self::users::dsl::*;
     /// #     use diesel::dsl::sql;
     /// #     use diesel::sql_types::Bool;
@@ -219,7 +219,7 @@ impl<ST, T, GB> ValidGrouping<GB> for SqlLiteral<ST, T> {
 ///
 /// ```rust
 /// # include!("../doctest_setup.rs");
-/// # fn main() {
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
 /// #     run_test_1().unwrap();
 /// #     run_test_2().unwrap();
 /// # }
@@ -306,7 +306,7 @@ where
     /// #    }
     /// # }
     /// #
-    /// # fn main() {
+    /// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
     /// #     use self::users::dsl::*;
     /// #     use diesel::dsl::sql;
     /// #     use diesel::sql_types::{Integer, Bool};

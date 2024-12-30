@@ -60,11 +60,11 @@ pub type Result<T> = result::Result<T, Box<dyn Error + Send + Sync>>;
 ///     name: String,
 /// }
 ///
-/// # fn main() {
-/// #     run_test();
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+/// #     run_test().await.unwrap();
 /// # }
 /// #
-/// # fn run_test() -> QueryResult<()> {
+/// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
 /// #     use schema::users::dsl::*;
 /// #     let connection = &mut establish_connection();
 /// let first_user = users.order_by(id).first(connection)?;
@@ -96,11 +96,11 @@ pub type Result<T> = result::Result<T, Box<dyn Error + Send + Sync>>;
 ///     name: Option<String>,
 /// }
 ///
-/// # fn main() {
-/// #     run_test();
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+/// #     run_test().await.unwrap();
 /// # }
 /// #
-/// # fn run_test() -> QueryResult<()> {
+/// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
 /// #     use schema::animals::dsl::*;
 /// #     let connection = &mut establish_connection();
 /// let all_animals = animals.select((id, name)).order_by(id).load(connection)?;
@@ -125,11 +125,11 @@ pub type Result<T> = result::Result<T, Box<dyn Error + Send + Sync>>;
 ///     title: String,
 /// }
 ///
-/// # fn main() {
-/// #     run_test();
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+/// #     run_test().await.unwrap();
 /// # }
 /// #
-/// # fn run_test() -> QueryResult<()> {
+/// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
 /// #     use schema::{posts, users};
 /// #     let connection = &mut establish_connection();
 /// #     diesel::insert_into(users::table)
@@ -194,11 +194,11 @@ pub type Result<T> = result::Result<T, Box<dyn Error + Send + Sync>>;
 ///     name: String,
 /// }
 ///
-/// # fn main() {
-/// #     run_test();
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+/// #     run_test().await.unwrap();
 /// # }
 /// #
-/// # fn run_test() -> QueryResult<()> {
+/// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
 /// #     use schema::users::dsl::*;
 /// #     let connection = &mut establish_connection();
 /// let first_user = users.first(connection)?;
@@ -239,11 +239,11 @@ pub type Result<T> = result::Result<T, Box<dyn Error + Send + Sync>>;
 ///     }
 /// }
 ///
-/// # fn main() {
-/// #     run_test();
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+/// #     run_test().await.unwrap();
 /// # }
 /// #
-/// # fn run_test() -> QueryResult<()> {
+/// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
 /// #     use schema::users::dsl::*;
 /// #     let connection = &mut establish_connection();
 /// let first_user = users.first(connection)?;
@@ -289,11 +289,11 @@ pub use diesel_derives::Queryable;
 ///     name: String,
 /// }
 ///
-/// # fn main() {
-/// #     run_test();
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+/// #     run_test().await.unwrap();
 /// # }
 /// #
-/// # fn run_test() -> QueryResult<()> {
+/// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
 /// #     let connection = &mut establish_connection();
 /// let first_user = sql_query("SELECT * FROM users ORDER BY id LIMIT 1")
 ///     .get_result(connection)?;
@@ -339,11 +339,11 @@ pub use diesel_derives::Queryable;
 ///     name: String,
 /// }
 ///
-/// # fn main() {
-/// #     run_test();
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
+/// #     run_test().await.unwrap();
 /// # }
 /// #
-/// # fn run_test() -> QueryResult<()> {
+/// # #[wasm_bindgen_test::wasm_bindgen_test] async fn run_test() -> QueryResult<()> { diesel::init_sqlite().await.unwrap();
 /// #     let connection = &mut establish_connection();
 /// let first_user = sql_query("SELECT * FROM users ORDER BY id LIMIT 1")
 ///     .get_result(connection)?;

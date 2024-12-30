@@ -16,7 +16,7 @@ use crate::sql_types::{Array, SqlType};
 /// # include!("../../doctest_setup.rs");
 /// # use diesel::dsl::*;
 /// #
-/// # fn main() {
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
 /// #     use schema::users::dsl::*;
 /// #     let connection = &mut establish_connection();
 /// #     diesel::sql_query("INSERT INTO users (name) VALUES ('Jim')").execute(connection).unwrap();
@@ -45,7 +45,7 @@ where
 /// # include!("../../doctest_setup.rs");
 /// # use diesel::dsl::*;
 /// #
-/// # fn main() {
+/// # #[wasm_bindgen::prelude::wasm_bindgen(main)] async fn main() {
 /// #     use schema::users::dsl::*;
 /// #     let connection = &mut establish_connection();
 /// #     diesel::sql_query("INSERT INTO users (name) VALUES ('Jim')").execute(connection).unwrap();
