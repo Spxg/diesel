@@ -1,6 +1,6 @@
 use std::io::prelude::*;
 
-use crate::deserialize::{self, FromSql, Queryable};
+use crate::deserialize::{self, FromSql};
 use crate::pg::{Pg, PgValue};
 use crate::serialize::{self, IsNull, Output, ToSql};
 use crate::sql_types;
@@ -40,6 +40,7 @@ impl ToSql<sql_types::CChar, Pg> for u8 {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::deserialize::Queryable;
 
     #[td::test]
     fn cchar_to_sql() {
